@@ -1,0 +1,27 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@graphql-tools/load-files": "^6.4.0",
+    "@graphql-tools/merge": "^8.1.2",
+    "@graphql-tools/schema": "^8.2.0",
+    "@prisma/client": "^3.1.1",
+    "apollo-server": "^3.3.0",
+    "dotenv": "^10.0.0",
+    "graphql": "^15.6.0",
+    "lodash": "^4.17.21",
+    "nanoid": "^3.1.28"
+  },
+  "devDependencies": {
+    "prisma": "^3.1.1"
+  }
+}

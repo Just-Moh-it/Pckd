@@ -1,0 +1,3 @@
+type Mutation {
+  createPckd(pckd: String, target: String!): String!
+}
