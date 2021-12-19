@@ -1,0 +1,11 @@
+type pckd {
+  id: ID!
+  user: User
+
+  target: String!
+  pckd: String!
+  hits: [hit]
+
+  createdAt: String!
+  updatedAt: String!
+}

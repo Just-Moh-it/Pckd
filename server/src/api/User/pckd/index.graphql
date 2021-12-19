@@ -1,0 +1,4 @@
+type Query {
+  getPckdInfo(id: ID!): pckd
+  getAllPckds: [pckd]
+}

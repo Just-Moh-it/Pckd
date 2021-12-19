@@ -20,9 +20,33 @@ model Pckd {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  Hits      Hits[]
 }
 
 model User {
-  id    String @id @default(cuid())
-  pckds Pckd[]
+  id       String @id @default(cuid())
+  name     String
+  email    String @unique
+  password String
+  pckds    Pckd[]
+}
+
+model Hits {
+  id                    String  @id @default(cuid())
+  pckd                  Pckd    @relation(fields: [pckdId], references: [id])
+  ip                    String
+  type                  String?
+  isp                   String?
+  timezoneName          String?
+  timezoneOffset        Int?
+  timezoneId            String?
+  timezoneAbbreviation  String?
+  locationName          String?
+  locationCity          String?
+  locationPostal        String?
+  locationCountryName   String?
+  locationCountryCode   String?
+  locationContinentName String?
+  locationContinentCode String?
+  pckdId                String
 }

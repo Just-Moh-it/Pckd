@@ -1,0 +1,32 @@
+type hit {
+  id: ID!
+  pckd: pckd
+
+  ip: String
+  type: String
+  isp: String
+  timezone: timezone
+  location: location
+}
+
+type timezone {
+  name: String
+  offset: Int
+  id: String
+  abbreviation: String
+}
+type location {
+  name: String
+  city: String
+  postal: String
+  country: country
+  continent: continent
+}
+type country {
+  name: String
+  code: String
+}
+type continent {
+  name: String
+  code: String
+}
