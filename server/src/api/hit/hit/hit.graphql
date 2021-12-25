@@ -7,6 +7,8 @@ type hit {
   isp: String
   timezone: timezone
   location: location
+  browser: browser
+  os: os
 }
 
 type timezone {
@@ -29,4 +31,13 @@ type country {
 type continent {
   name: String
   code: String
+}
+
+type browser {
+  name: String
+  version: String
+}
+type os {
+  name: String
+  version: String
 }

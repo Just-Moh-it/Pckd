@@ -5,6 +5,8 @@ type pckd {
   target: String!
   pckd: String!
   hits: [hit]
+  hitCount: Int!
+  title: String
 
   createdAt: String!
   updatedAt: String!

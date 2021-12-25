@@ -1,12 +1,53 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import styled, {
+  ThemeProvider as StyledThemeProvider,
+} from "styled-components";
+import { ThemeContext } from "./context/ThemeContext";
 import Router from "./Router";
+import { GeistProvider, CssBaseline } from "@geist-ui/react";
+import { useDispatch } from "react-redux";
+import { initializeUser } from "./features/authSlice";
+
+import GlobalStyles from "./styles/GlobalStyles";
+
+const Wrapper = styled.div`
+  height: 100vh;
+  width: 100vw;
+
+  color: rgb(85, 75, 85);
+  background-color: rgb(255, 255, 255);
+
+  * {
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+  }
+`;
 
 const App = () => {
+  const { theme } = useContext(ThemeContext);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const intialize = async () => {
+      // 1. Check if token is already in local storage
+      const token = localStorage.getItem("token");
+      if (token) {
+        dispatch(initializeUser());
+      }
+    };
+    intialize();
+  }, [dispatch]);
+
   return (
-    <div>
-      {/* <h1>Hello World</h1> */}
-      <Router />
-    </div>
+    <StyledThemeProvider theme={theme}>
+      <GeistProvider>
+        <CssBaseline />
+        <Wrapper>
+          <GlobalStyles />
+          <Router />
+        </Wrapper>
+      </GeistProvider>
+    </StyledThemeProvider>
   );
 };
 

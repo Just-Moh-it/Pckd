@@ -29,8 +29,20 @@ module.exports = {
         continent: {
           name: parent.locationContinentName,
           code: parent.locationContinentCode,
-        }
+        },
       };
-    }
+    },
+    browser: (parent, args, ctx) => {
+      return {
+        name: parent.browserName,
+        version: parent.browserVersion,
+      };
+    },
+    os: (parent, args, ctx) => {
+      return {
+        name: parent.OSName,
+        version: parent.OSVersion,
+      };
+    },
   },
 };

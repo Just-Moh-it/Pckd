@@ -44,5 +44,5 @@ module.exports = {
       // 3. Return pckd info
       return pckd;
     },
-  },
+  }
 };

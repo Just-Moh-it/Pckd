@@ -1,36 +1,43 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 // Pages
-import Manage from "./pages/Manage/Manage";
 import Home from "./pages/Home";
-import RedirectHandler from "./pages/RedirectHandler";
-import Ping from "./pages/Ping";
-import Nav from "./components/Nav";
+import Dashboard from "./pages/Manage/Dashboard/index";
 
-const RouterComponent = () => {
+// Login, Signup
+import AuthWrapper from "./pages/Auth/AuthWrapper";
+import Login from "./pages/Auth/Login";
+import Signup from "./pages/Auth/Signup";
+import ManageWrapper from "./pages/Manage/ManageWrapper";
+import Ping from "./pages/Ping";
+
+import RedirectHandler from "./pages/RedirectHandler";
+
+const Router = () => {
   return (
     <>
-      <Nav></Nav>
-      <Switch>
-        {/* Ping Rout */}
-        <Route exact path="/ping" component={Ping} />
+      <Routes>
+        {/* Base Paths */}
+        <Route path="/" element={<Home />} />
 
-        {/* Manage Router */}
-        <Route exact path="/manage" component={Manage}></Route>
-
-        {/* Root Router */}
-        <Route exact path="/">
-          <Home />
+        {/* ManageRouter */}
+        <Route path="manage" element={<ManageWrapper />}>
+          <Route path="" element={<Dashboard />} />
+          <Route path="ping" element={Ping} />
         </Route>
 
-        {/* Navigation Router */}
-        <Route path="/">
-          <RedirectHandler />
+        {/* Auth Router */}
+        <Route path="auth" element={<AuthWrapper />}>
+          <Route path="" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
         </Route>
-      </Switch>
+
+        {/* All other routes */}
+        <Route path="*" element={<RedirectHandler />} />
+      </Routes>
     </>
   );
 };
 
-export default RouterComponent;
+export default Router;

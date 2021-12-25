@@ -22,10 +22,11 @@ module.exports = {
       }
 
       // 2. Get Target
-      const { target } = args;
+      const { target, title } = args;
       let data = {
         pckd,
         target,
+        title,
       };
 
       // 3. Check if user is authenticated, else create anonymous record
@@ -36,7 +37,7 @@ module.exports = {
 
       // 3. Create Pckd
       await prisma.pckd.create({
-        data
+        data,
       });
 
       return pckd;

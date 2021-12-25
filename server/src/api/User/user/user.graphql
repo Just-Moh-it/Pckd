@@ -3,4 +3,6 @@ type User {
   pckds: [pckd!]
   name: String!
   email: String!
+  createdAt: String!
+  updatedAt: String!
 }

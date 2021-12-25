@@ -1,4 +1,6 @@
 const isp = require("../../../utils/isp");
+const { getBrowserName } = require("../../../utils/utils");
+var parser = require("ua-parser-js");
 
 module.exports = {
   Mutation: {
@@ -14,7 +16,7 @@ module.exports = {
         select: {
           target: true,
           id: true,
-          userId: true
+          userId: true,
         },
       });
 
@@ -39,43 +41,67 @@ const handleHitInsert = async (ctx, id) => {
   const { prisma } = ctx;
 
   try {
+    const testMode = true;
+
     // 3.1 Get ip of request, and check if it exists
-    const ipRaw = ctx.request.connection.remoteAddress;
+    const ipRaw = testMode
+      ? "122.177.222.233"
+      : ctx.request.connection.remoteAddress;
     // seperate ipv4 and ipv6
     // check if rawIp contains ':' characters
     const ip = ipRaw.includes(":") ? ipRaw.split(":")[3] : ipRaw;
 
-    if (ip) {
-      // If isp exists, get details from api
+    // Get the browser from headers
+    const userAgent = ctx.request.headers["user-agent"];
 
-      // 3.1.1 Get isp info
-      try {
-        // const ispInfo = await isp(ip);
-        const ispInfo = await isp("122.177.172.148");
+    const parsedUserAgent = parser(userAgent);
+    const {
+      browser: { name: browserName, version: browserVersion },
+      os: { name: OSName, version: OSVersion },
+    } = parsedUserAgent;
 
-        // 3.1.3 Insert isp info into database
-        await prisma.hits.create({
-          data: {
-            pckdId: id,
-            ip: ip,
-            type: ispInfo.type,
-            isp: ispInfo.isp,
-            timezoneName: ispInfo.timezone.name,
-            timezoneOffset: ispInfo.timezone.offset,
-            timezoneId: ispInfo.timezone.id,
-            timezoneAbbreviation: ispInfo.timezone.abbreviation,
-            locationName: ispInfo.location.name,
-            locationCity: ispInfo.location.city,
-            locationPostal: ispInfo.location.postal,
-            locationCountryName: ispInfo.location.country.name,
-            locationCountryCode: ispInfo.location.country.code,
-            locationContinentName: ispInfo.location.continent.name,
-            locationContinentCode: ispInfo.location.continent.code,
-          },
-        });
-      } catch (error) {
-        console.error("IP address error: ", error);
-      }
+    // Extract browser-name frmo user-agent
+
+    // If isp exists, get details from api
+
+    // 3.1.1 Get isp info
+    try {
+      // const ispInfo = await isp(ip);
+      let ipInfo;
+      if (ip) {
+        const rawIspInfo = await isp(ip);
+
+        ipInfo = {
+          ip: ip,
+          type: rawIspInfo.type,
+          isp: rawIspInfo.isp,
+          timezoneName: rawIspInfo.timezone.name,
+          timezoneOffset: rawIspInfo.timezone.offset,
+          timezoneId: rawIspInfo.timezone.id,
+          timezoneAbbreviation: rawIspInfo.timezone.abbreviation,
+          locationName: rawIspInfo.location.name,
+          locationCity: rawIspInfo.location.city,
+          locationPostal: rawIspInfo.location.postal,
+          locationCountryName: rawIspInfo.location.country.name,
+          locationCountryCode: rawIspInfo.location.country.code,
+          locationContinentName: rawIspInfo.location.continent.name,
+          locationContinentCode: rawIspInfo.location.continent.code,
+        };
+      } else ipInfo = {};
+
+      // 3.1.3 Insert isp info into database
+      await prisma.hits.create({
+        data: {
+          pckdId: id,
+          ...ipInfo,
+          browserName: browserName,
+          browserVersion: browserVersion,
+          OSName: OSName,
+          OSVersion: OSVersion,
+        },
+      });
+    } catch (error) {
+      console.error("IP address error: ", error);
     }
   } catch (err) {
     console.error("An ip address resolving error occured:", err);

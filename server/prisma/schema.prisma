@@ -18,17 +18,21 @@ model Pckd {
   target String
   pckd   String @unique
 
+  title String?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   Hits      Hits[]
 }
 
 model User {
-  id       String @id @default(cuid())
-  name     String
-  email    String @unique
-  password String
-  pckds    Pckd[]
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  pckds     Pckd[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Hits {
@@ -48,5 +52,12 @@ model Hits {
   locationCountryCode   String?
   locationContinentName String?
   locationContinentCode String?
+  browserName           String?
+  browserVersion        String?
+  OSName                String?
+  OSVersion             String?
   pckdId                String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
