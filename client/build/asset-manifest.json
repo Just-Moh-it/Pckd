@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.js": "/static/js/main.e50fa6a6.chunk.js",
+    "main.js.map": "/static/js/main.e50fa6a6.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.bcacd1c9.js",
+    "runtime-main.js.map": "/static/js/runtime-main.bcacd1c9.js.map",
+    "static/js/2.da3fa624.chunk.js": "/static/js/2.da3fa624.chunk.js",
+    "static/js/2.da3fa624.chunk.js.map": "/static/js/2.da3fa624.chunk.js.map",
+    "index.html": "/index.html",
+    "static/js/2.da3fa624.chunk.js.LICENSE.txt": "/static/js/2.da3fa624.chunk.js.LICENSE.txt",
+    "static/media/404-hit.fa9624e0.png": "/static/media/404-hit.fa9624e0.png",
+    "static/media/antenna.2aa07e10.svg": "/static/media/antenna.2aa07e10.svg",
+    "static/media/browser.7dcb4f34.svg": "/static/media/browser.7dcb4f34.svg",
+    "static/media/calendar.c1bddb6b.svg": "/static/media/calendar.c1bddb6b.svg",
+    "static/media/click.c85b3b7a.svg": "/static/media/click.c85b3b7a.svg",
+    "static/media/clock.ba30858c.svg": "/static/media/clock.ba30858c.svg",
+    "static/media/device.7aa29daa.svg": "/static/media/device.7aa29daa.svg",
+    "static/media/filter.a8f15d3f.svg": "/static/media/filter.a8f15d3f.svg",
+    "static/media/globe.236ff714.svg": "/static/media/globe.236ff714.svg",
+    "static/media/globe_color.6a44bc94.svg": "/static/media/globe_color.6a44bc94.svg",
+    "static/media/hero-image.6ad5f48f.png": "/static/media/hero-image.6ad5f48f.png",
+    "static/media/label.d92daede.svg": "/static/media/label.d92daede.svg",
+    "static/media/link.e7717d6b.svg": "/static/media/link.e7717d6b.svg",
+    "static/media/linkunpckd.d1abbaef.svg": "/static/media/linkunpckd.d1abbaef.svg",
+    "static/media/login-bg.17c55119.png": "/static/media/login-bg.17c55119.png",
+    "static/media/logo-white.656c6647.svg": "/static/media/logo-white.656c6647.svg",
+    "static/media/logo.9a9e2d70.svg": "/static/media/logo.9a9e2d70.svg",
+    "static/media/new-user-welcome.2a533e75.png": "/static/media/new-user-welcome.2a533e75.png",
+    "static/media/not-found.a0439142.svg": "/static/media/not-found.a0439142.svg",
+    "static/media/pin.c4beab42.svg": "/static/media/pin.c4beab42.svg",
+    "static/media/server.f4b6e076.svg": "/static/media/server.f4b6e076.svg",
+    "static/media/shorten.5b745ebe.svg": "/static/media/shorten.5b745ebe.svg",
+    "static/media/sort-ascending.bb4d12de.svg": "/static/media/sort-ascending.bb4d12de.svg",
+    "static/media/user.2b4a86ab.svg": "/static/media/user.2b4a86ab.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bcacd1c9.js",
+    "static/js/2.da3fa624.chunk.js",
+    "static/js/main.e50fa6a6.chunk.js"
+  ]
+}
