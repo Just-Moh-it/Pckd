@@ -277,7 +277,11 @@ const CreatePckd = () => {
           <button
             onClick={() => {
               // Copy to clipboard
-              navigator.clipboard.writeText(getFullUrl());
+              try {
+                navigator.clipboard.writeText(getFullUrl());
+              } catch (err) {
+                toast.error("Unable to copy the text");
+              }
               // Change the text
               toast("Copied to clipboard!", { icon: "👍" });
               setCopyText("👍");
