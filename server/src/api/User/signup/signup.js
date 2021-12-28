@@ -11,6 +11,16 @@ module.exports = {
 
       if (exists) throw Error("The email already exists, try different ones");
 
+      // Validate the password
+      // 1. check if the password is at least 8 characters long
+      if (args.password.length < 8)
+        throw Error("The password must be at least 8 characters long");
+
+      // 2. check if the password contains at least one number
+      if (!args.password.match(/\d/))
+        throw Error("The password must contain at least one number");
+        
+
       // hash the password, save the user in db
       const hashedPw = await bcrypt.hash(args.password, 10);
 

@@ -41,6 +41,7 @@ const RightContainer = styled.div`
   text-align: center;
   color: black;
   position: relative;
+  font-weight: 500;
 
   & .content {
     max-width: 400px;
@@ -73,66 +74,6 @@ const RightContainer = styled.div`
     font-size: 15px;
     margin-top: 5px;
     display: inline-block;
-  }
-`;
-
-export const TextBox = styled.input`
-  background: #f3f3f3;
-  border-radius: 10px;
-  padding: 22px 28px;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: rgba(0, 0, 0, 0.8);
-  border: none;
-  width: 100%;
-  display: inline-block;
-  /* change color of outline when focused */
-  outline-color: ${(props) => props.theme.accentColor};
-`;
-
-export const FormGroup = styled.div`
-  text-align: left;
-  margin-bottom: 30px;
-  margin-top: 37px;
-
-  & label,
-  .forgot-link {
-    display: inline-block;
-    margin-bottom: 10px;
-  }
-
-  & .forgot-link {
-    text-align: right;
-    float: right;
-  }
-
-  & * {
-    clear: both;
-  }
-
-  & button {
-    padding: 17px 10px;
-    width: 100%;
-    border: none;
-    background-color: ${(props) => props.theme.accentColor};
-    color: white;
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 27px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-  }
-  & button:disabled {
-    background-color: #e6e6e6;
-    color: #b3b3b3;
-    cursor: wait;
-  }
-
-  & button:hover {
-    opacity: 0.9;
   }
 `;
 

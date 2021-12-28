@@ -4,6 +4,12 @@ const jwt = require("jsonwebtoken");
 module.exports = {
   Mutation: {
     login: async (parent, args, ctx) => {
+      // Rate limit this function
+      // const rateLimit = await ctx.rateLimiter.consume(ctx.request.ip);
+      // if (!rateLimit) {
+      //   throw new Error("Too many requests");
+      // }
+
       // 1. check the user is registered
       const user = await ctx.prisma.user.findUnique({
         where: { email: args.email },
@@ -12,7 +18,7 @@ module.exports = {
 
       // 2. check if the password matches
       const isMatch = await bcrypt.compare(args.password, user.password);
-      if (!isMatch) throw Error("The password does not match. Try again.");
+      if (!isMatch) throw Error("The password was incorrect. Try again.");
 
       // 3. send back authpayload -> token, user
       const payload = { userId: user.id };

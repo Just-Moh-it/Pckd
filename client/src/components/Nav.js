@@ -4,7 +4,7 @@ import config from "../config";
 
 import { ButtonLink, NormalLink, NormalLinkStyles } from "../styles/Buttons";
 import logo from "../assets/images/logo.svg";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const NavBarParent = styled.div`
   height: 60px;
@@ -52,6 +52,8 @@ const StyledLink = styled(NavLink)`
 `;
 
 const Nav = () => {
+  const navigate = useNavigate();
+
   return (
     <NavBarParent>
       <LogoContainer>
@@ -59,13 +61,18 @@ const Nav = () => {
         <p className="logo-text">{config.APP_NAME}</p>
       </LogoContainer>
       <NavLinks>
-        <StyledLink as={NormalLink} activeClassName="active" to="/">
+        <Link as={NormalLink} activeClass="active" to="/">
           Create New Pckd
-        </StyledLink>
-        <StyledLink as={NormalLink} activeClassName="active" to="/about">
-          About
-        </StyledLink>
-        <ButtonLink>Login</ButtonLink>
+        </Link>
+        <Link as={NormalLink} activeClass="active" to="/manage">
+          Dashboard
+        </Link>
+        <ButtonLink
+          onClick={() => navigate("/auth")}
+          to="/auth"
+        >
+          Login
+        </ButtonLink>
       </NavLinks>
     </NavBarParent>
   );

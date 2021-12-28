@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { TextBox, FormGroup } from "./AuthWrapper";
+import TextBox from "../../styles/TextBox";
+import FormGroup from "../../styles/FormGroup";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";

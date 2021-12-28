@@ -28,10 +28,8 @@ export const SET_SELECTED_PCKD_QUERY = gql`
             code
             name
           }
-          continent {
-            name
-          }
         }
+        createdAt
       }
       hitCount
       id
@@ -39,13 +37,38 @@ export const SET_SELECTED_PCKD_QUERY = gql`
       pckd
       title
       createdAt
-      updatedAt
     }
   }
 `;
 
 export const SET_SELECTED_HIT_QUERY = gql`
-  query ping {
-    ping
+  query Hit($hitId: ID!) {
+    hit(id: $hitId) {
+      id
+      ip
+      type
+      isp
+      timezone {
+        offset
+        abbreviation
+      }
+      location {
+        city
+        postal
+        country {
+          name
+          code
+        }
+      }
+      browser {
+        name
+        version
+      }
+      os {
+        name
+        version
+      }
+      createdAt
+    }
   }
 `;

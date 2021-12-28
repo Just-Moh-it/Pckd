@@ -5,6 +5,7 @@ import {
   SET_SELECTED_PCKD_QUERY,
   SET_SELECTED_HIT_QUERY,
 } from "../queries/dashboard";
+import toast from "react-hot-toast";
 
 // const userPckdDummyData = {
 //   id: 1,
@@ -19,10 +20,11 @@ import {
 
 export const getUserPckds = createAsyncThunk(
   "dashboard/getUserPckds",
-  async () => {
+  async (props) => {
     // Query the client
     const res = await client.query({
       query: GET_ALL_PCKDS_LEFTBAR_QUERY,
+      fetchPolicy: props && props.refetch && "no-cache",
     });
 
     // Delete typene
@@ -58,12 +60,12 @@ export const selectHit = createAsyncThunk("dashboard/selectHit", async (id) => {
   const res = await client.query({
     query: SET_SELECTED_HIT_QUERY,
     variables: {
-      id,
+      hitId: id,
     },
   });
 
   // Fullfill the action
-  return res.data.getHitInfo;
+  return res.data.hit;
 });
 
 export const dashboardSlice = createSlice({
@@ -83,6 +85,18 @@ export const dashboardSlice = createSlice({
     },
     [selectPckd.fulfilled]: (state, action) => {
       state.activePckd = action.payload;
+    },
+    [selectHit.fulfilled]: (state, action) => {
+      state.activeHit = action.payload;
+    },
+    [getUserPckds.rejected]: (state, action) => {
+      toast.error(`Query Failed: ${action.error.message}`);
+    },
+    [selectPckd.rejected]: (state, action) => {
+      toast.error(`Query Failed: ${action.error.message}`);
+    },
+    [selectHit.rejected]: (state, action) => {
+      toast.error(`Query Failed: ${action.error.message}`);
     },
   },
 });

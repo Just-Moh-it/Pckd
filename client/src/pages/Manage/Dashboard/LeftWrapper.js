@@ -6,6 +6,7 @@ import ListItem from "../../../components/ListItem";
 import {
   getCompanyLogoLinkFromURI,
   getHumanDateFromEpoch,
+  flattenObject,
 } from "../../../utils";
 
 // Icons and assets
@@ -15,6 +16,7 @@ import { ReactComponent as Link } from "../../../assets/icons/link.svg";
 import { ReactComponent as Calendar } from "../../../assets/icons/calendar.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserPckds, selectPckd } from "../../../features/dashboardSlice";
+import { useForm } from "react-hook-form";
 
 const LeftWrapperStyles = styled.div`
   height: 100%;
@@ -29,7 +31,7 @@ const LeftWrapperStyles = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 18px 0 33px;
+    margin: 10px 0 10px;
   }
 
   /* Search Bar */
@@ -63,75 +65,24 @@ const LeftWrapperStyles = styled.div`
 
   & {
     overflow: auto;
+    padding-bottom: 100px;
   }
 `;
-
-const data = [
-  {
-    leftIcon: {
-      hover: "Google.com",
-      src: "https://google.com/favicon.ico",
-    },
-    rightItem: {
-      subtitleItems: [
-        {
-          icon: { src: <Calendar />, hover: "Created on" },
-          text: "13 Sep, 2004",
-        },
-      ],
-      id: 1,
-      title: "Gmail Link for share",
-      target: "google.com",
-      onClick: () => {
-        console.log("I was clicked!");
-      },
-      bylineItems: [
-        {
-          icon: {
-            src: <Globe />,
-            hover: "Link",
-          },
-          text: "https://gmail.com",
-        },
-        {
-          icon: {
-            src: <Link />,
-            hover: "Pckd",
-          },
-          text: "/gmail",
-        },
-        {
-          icon: {
-            src: <Click />,
-            hover: "Clicks",
-          },
-          text: "31",
-        },
-      ],
-      moreButtonItems: [
-        {
-          text: "Edit",
-          onClick: () => {
-            "Edit Was Clicked";
-          },
-        },
-      ],
-    },
-  },
-];
-
-const dummyData = data;
 
 const LeftWrapper = () => {
   const dispatch = useDispatch();
   const { userPckds: rawUserPckds, activePckd } = useSelector(
     (state) => state.dashboard
   );
-  const [userPckds, setUserPckds] = useState(dummyData);
+  const [userPckds, setUserPckds] = useState([]);
+  const [filterInput, setFilterInput] = useState("");
+  const { register, getValues } = useForm();
 
   useEffect(() => {
-    dispatch(getUserPckds());
+    dispatch(getUserPckds({ refetch: true }));
+  }, [dispatch]);
 
+  useEffect(() => {
     if (rawUserPckds.length !== 0) {
       dispatch(selectPckd(rawUserPckds[0]?.id));
     }
@@ -199,7 +150,6 @@ const LeftWrapper = () => {
     dispatch(selectPckd(id));
   };
 
-  console.log(dummyData);
   return (
     <LeftWrapperStyles className="title-wrapper">
       {/* Title */}
@@ -219,20 +169,40 @@ const LeftWrapper = () => {
       <div className="header-content">
         <div className="search-bar shadowed">
           <Filter />
-          <input type="text" placeholder="Filter..." />
+          <input
+            onChange={(e) => setFilterInput(e.target.value)}
+            value={filterInput}
+            type="text"
+            placeholder="Filter..."
+          />
         </div>
       </div>
       <div className="main-content">
         <div className="list">
-          {userPckds?.map((item) => (
-            <ListItem
-              onClick={() => select(item.rightItem.id)}
-              leftIcon={item.leftIcon}
-              rightItem={item.rightItem}
-              isActive={activePckd?.id === item?.rightItem?.id}
-              className="active"
-            />
-          ))}
+          {userPckds &&
+            userPckds.length > 0 &&
+            userPckds
+              ?.filter(
+                (item) =>
+                  item &&
+                  Object.values(flattenObject(item))?.some((value) => {
+                    return (
+                      value &&
+                      typeof value === "string" &&
+                      value?.toLowerCase()?.includes(filterInput?.toLowerCase())
+                    );
+                  })
+              )
+              ?.map((item) => (
+                <ListItem
+                  key={item?.id}
+                  onClick={() => select(item.rightItem.id)}
+                  leftIcon={item.leftIcon}
+                  rightItem={item.rightItem}
+                  isActive={activePckd?.id === item?.rightItem?.id}
+                  className="active"
+                />
+              ))}
         </div>
       </div>
     </LeftWrapperStyles>

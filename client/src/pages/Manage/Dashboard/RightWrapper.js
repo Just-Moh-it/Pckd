@@ -1,32 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { selectHit } from "../../../features/dashboardSlice";
 import ListItem from "../../../components/ListItem";
-import { getBackendURL, getHumanDateFromEpoch } from "../../../utils";
+import {
+  getBackendURL,
+  getHumanDateFromEpoch,
+  getHumanTimeFromEpoch,
+  flattenObject,
+} from "../../../utils";
 
 // Icons
 import { ReactComponent as SortAscending } from "../../../assets/icons/sort-ascending.svg";
 import { ReactComponent as Filter } from "../../../assets/icons/filter.svg";
 import { ReactComponent as Calendar } from "../../../assets/icons/calendar.svg";
 import { ReactComponent as Globe } from "../../../assets/icons/globe.svg";
+import { ReactComponent as Pin } from "../../../assets/icons/pin.svg";
+import { ReactComponent as Antenna } from "../../../assets/icons/antenna.svg";
+import { ReactComponent as Server } from "../../../assets/icons/server.svg";
+import { ReactComponent as Clock } from "../../../assets/icons/clock.svg";
+import { ReactComponent as Browser } from "../../../assets/icons/browser.svg";
+import { ReactComponent as Device } from "../../../assets/icons/device.svg";
+import NoHit404Img from "../../../assets/images/404-hit.png";
 
 const RightWrapperStyles = styled.div`
   height: 100%;
   padding: 14px 30px 0 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
 
   & .flex-height {
-    display: flex;
-    flex-direction: column;
-    height: 65vh;
+    display: grid;
+    /* Row based grid with two elements of same height */
+    grid-template-rows: auto auto;
+    grid-row-gap: 10px;
+    max-height: 100%;
   }
 
   & .main-btn {
     padding: 7px;
-  }
-
-  & .detail {
-    overflow-y: scroll;
   }
 
   /* Header Content */
@@ -34,8 +47,8 @@ const RightWrapperStyles = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 18px 0 33px;
-    flex: 1;
+    margin: 10px 0;
+    flex-grow: 1;
   }
 
   /* Search Bar */
@@ -48,7 +61,7 @@ const RightWrapperStyles = styled.div`
   }
 
   & .search-bar input {
-    flex-grow: 1;
+    /* flex-grow: 1; */
     border: none;
     background-color: transparent;
     padding: 0;
@@ -68,20 +81,22 @@ const RightWrapperStyles = styled.div`
     margin-bottom: -6px;
   }
 
+  & .detail {
+    overflow: scroll;
+  }
+
   & .detail.location {
-    /* height: 100px; */
-    height: max-content;
   }
 
   & .detail.list {
     /* height: 100px; */
-    flex: 1;
     overflow-y: scroll;
+    padding-bottom: 200px;
   }
 
-  & .map {
+  & .content.shadowed {
     overflow: hidden;
-    padding: -10px;
+    padding: -10px -10px -10px -20px;
   }
 
   & .map iframe {
@@ -89,97 +104,239 @@ const RightWrapperStyles = styled.div`
     height: 200px;
     border: none;
   }
+
+  & .item .subheading {
+    font-weight: 500;
+    font-size: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+
+    color: ${(props) => props.theme.accentColor};
+  }
+
+  & .item .title {
+    text-transform: unset;
+  }
+
+  & .item svg {
+    width: 17px;
+    height: 17px;
+    margin-bottom: -3px;
+    margin-right: 5px;
+    color: inherit;
+  }
+
+  & .item p {
+    /* margin: 0 0 5px 0; */
+    font-weight: 500;
+  }
+`;
+
+const Div404Wrapper = styled.div`
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  & h3 {
+    margin-top: 50px;
+  }
 `;
 
 const RightWrapper = () => {
   const activePckd = useSelector((state) => state?.dashboard?.activePckd);
+  const activeHit = useSelector((state) => state?.dashboard?.activeHit);
+  const [filterInput, setFilterInput] = useState("");
   const dispatch = useDispatch();
 
   const hits = activePckd?.hits;
 
+  const handleSelectHit = useCallback(
+    (id) => {
+      dispatch(selectHit(id));
+    },
+    [dispatch]
+  );
+
   useEffect(() => {
-    if (hits?.length > 0) {
-      dispatch(selectHit(hits[0].id));
+    if (hits && hits?.length > 0) {
+      handleSelectHit(hits[0].id);
+    } else {
+      handleSelectHit();
     }
-  }, [dispatch, hits]);
+  }, [dispatch, hits, handleSelectHit]);
 
   return (
     <RightWrapperStyles className="title-wrapper">
       {/* Title */}
-      <div className="title">
-        <h3 className="sub-heading">View info about</h3>
-        <h1 className="heading">Clickers</h1>
-      </div>
-      {/* Header-content */}
-      <div className="header-content">
-        <div className="search-bar shadowed">
-          <Filter />
-          <input type="text" placeholder="Filter..." />
+      <div className="top">
+        <div className="title">
+          <h3 className="sub-heading">View info about</h3>
+          <h1 className="heading">Clickers</h1>
         </div>
-        <div className="">
-          <button className="shadowed btn main-btn">
-            <SortAscending />
-          </button>
+        {/* Header-content */}
+        <div className="header-content">
+          <div className="search-bar shadowed">
+            <Filter />
+            <input
+              type="text"
+              value={filterInput}
+              onChange={(e) => setFilterInput(e.target.value)}
+              placeholder="Filter..."
+            />
+          </div>
+          <div className="">
+            <button className="shadowed btn main-btn">
+              <SortAscending />
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="details">
+      {activePckd?.hitCount > 0 ? (
         <div className="flex-height">
-          <div className="detail location">
-            <h3 className="detail-title">Locations</h3>
-            <div className="detail-content shadowed">
-              <div className="detail-content-item map">
-                <p className="detail-content-item-title-text"></p>
-                <iframe
-                  src={`https://maps.google.com/maps?q=${"dallas"}&output=embed`}
-                ></iframe>
+          {activeHit && (
+            <div className="detail location">
+              <div className="item">
+                <Pin className="icon" />
+                <span className="subheading">Address</span>
+                <p>
+                  {activeHit?.location?.city},{" "}
+                  {activeHit?.location?.country?.code} -{" "}
+                  {activeHit?.location?.postal}
+                </p>
+              </div>
+              <div className="content shadowed">
+                {activeHit?.ip && (
+                  <div className="item map">
+                    <span className="subheading"></span>
+                    <iframe
+                      title="Map"
+                      src={`https://maps.google.com/maps?q=${activeHit?.location?.city}, ${activeHit?.location?.country?.name}&output=embed`}
+                    />
+                  </div>
+                )}
+              </div>
+              <div className="content">
+                {activeHit?.ip && (
+                  <>
+                    <div className="item">
+                      <Antenna className="icon" />
+                      <span className="subheading">IP</span>
+                      <p>{activeHit?.ip}</p>
+                    </div>
+                    <div className="item">
+                      <Server className="icon" />
+                      <span className="subheading">{activeHit?.type}</span>
+                      <p>{activeHit?.isp}</p>
+                    </div>
+                  </>
+                )}
+                {activeHit?.browser?.name && (
+                  <div className="item">
+                    <Browser className="icon" />
+                    <span className="subheading">Browser</span>
+                    <p>
+                      {activeHit?.browser?.name +
+                        (" | " + activeHit?.browser?.version || "")}
+                    </p>
+                  </div>
+                )}
+                {activeHit?.os.name && (
+                  <div className="item">
+                    <Device className="icon" />
+                    <span className="subheading">Device</span>
+                    <p>
+                      {activeHit?.os?.name +
+                        (" | " + activeHit?.os?.version || "")}
+                    </p>
+                  </div>
+                )}
+                <div className="item">
+                  <Clock className="icon" />
+                  <span className="subheading">Visitor's Time</span>
+                  <p>
+                    {getHumanDateFromEpoch(
+                      parseInt(activeHit?.createdAt) +
+                        parseInt(activeHit?.timezone?.offset)
+                    )}{" "}
+                    | {getHumanTimeFromEpoch(activePckd?.createdAt)}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          )}
           <div className="detail list">
             <h3 className="detail-title">All Clicks</h3>
-            <div className="detail-content shadowed">
-              <div className="detail-content-item">
+            <div className="content">
+              <div className="item">
                 {hits?.length !== 0 &&
-                  hits?.map((hit) => (
-                    <ListItem
-                      leftIcon={{
-                        src: `${getBackendURL()}/static/flags/${hit?.location?.country?.code?.toLowerCase()}.svg`,
-                        hover: hit?.location?.country?.name,
-                        rounded: true,
-                      }}
-                      rightItem={{
-                        subtitleItems: [
-                          {
-                            icon: {
-                              src: <Calendar />,
-                              hover: "Date",
+                  hits
+                    ?.filter(
+                      (item) =>
+                        item &&
+                        Object.values(flattenObject(item))?.some((value) => {
+                          return (
+                            value &&
+                            typeof value === "string" &&
+                            value
+                              ?.toLowerCase()
+                              ?.includes(filterInput?.toLowerCase())
+                          );
+                        })
+                    )
+                    ?.map((hit) => (
+                      <ListItem
+                        key={hit?.id}
+                        isActive={hit?.id === activeHit?.id}
+                        leftIcon={{
+                          src: `${getBackendURL()}/static/flags/${hit?.location?.country?.code?.toLowerCase()}.svg`,
+                          hover: hit?.location?.country?.name,
+                          rounded: true,
+                        }}
+                        rightItem={{
+                          subtitleItems: [
+                            {
+                              icon: {
+                                src: <Calendar />,
+                                hover: "Date",
+                              },
+                              text: hit?.createdAt
+                                ? getHumanDateFromEpoch(hit?.createdAt)
+                                : "N/A",
                             },
-                            text: hit?.createdAt
-                              ? getHumanDateFromEpoch(hit?.createdAt)
-                              : "N/A",
-                          },
-                        ],
-                        id: hit?.id,
-                        title: `${hit?.location?.city}, ${hit?.location?.country?.code}`,
-                        bylineItems: [
-                          {
-                            icon: {
-                              src: <Globe />,
-                              hover: "IP Address",
+                          ],
+                          id: hit?.id,
+                          title: `${hit?.location?.city}, ${hit?.location?.country?.code}`,
+                          bylineItems: [
+                            {
+                              icon: {
+                                src: <Globe />,
+                                hover: "IP Address",
+                              },
+                              text: hit?.ip,
                             },
-                            text: hit?.ip,
-                          },
-                        ],
-                      }}
-                    />
-                  ))}
+                          ],
+                        }}
+                        onClick={() => handleSelectHit(hit?.id)}
+                      />
+                    ))}
               </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <Div404Wrapper>
+          <img src={NoHit404Img} alt="No visitors" />
+          <h3>No Visitors Yet {":("}</h3>
+          <p>Select the sharable link and get more visitors. Their info would be shown here!</p>
+        </Div404Wrapper>
+      )}
     </RightWrapperStyles>
   );
 };

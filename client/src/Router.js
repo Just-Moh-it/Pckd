@@ -1,5 +1,6 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 // Pages
 import Home from "./pages/Home";
@@ -9,12 +10,14 @@ import Dashboard from "./pages/Manage/Dashboard/index";
 import AuthWrapper from "./pages/Auth/AuthWrapper";
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
-import ManageWrapper from "./pages/Manage/ManageWrapper";
-import Ping from "./pages/Ping";
+import Forgot from "./pages/Auth/Forgot";
+import Profile from "./pages/Manage/Profile/.";
 
 import RedirectHandler from "./pages/RedirectHandler";
 
 const Router = () => {
+  const isLoggedIn = useSelector((state) => !!state?.auth?.userInfo?.id);
+
   return (
     <>
       <Routes>
@@ -22,15 +25,33 @@ const Router = () => {
         <Route path="/" element={<Home />} />
 
         {/* ManageRouter */}
-        <Route path="manage" element={<ManageWrapper />}>
-          <Route path="" element={<Dashboard />} />
-          <Route path="ping" element={Ping} />
+        <Route path="manage/*">
+          {isLoggedIn ? (
+            <>
+              {/* Protected Routes */}
+              <Route path="" element={<Dashboard />} />
+              <Route path="profile" element={<Profile />} />
+            </>
+          ) : (
+            <>
+              <Route path="*" element={<Navigate to="/auth" replace />} />
+            </>
+          )}
         </Route>
 
         {/* Auth Router */}
-        <Route path="auth" element={<AuthWrapper />}>
-          <Route path="" element={<Login />} />
-          <Route path="signup" element={<Signup />} />
+        <Route path="auth/*" element={<AuthWrapper />}>
+          {isLoggedIn ? (
+            <>
+              <Route path="*" element={<Navigate to="/manage" replace />} />
+            </>
+          ) : (
+            <>
+              <Route path="" element={<Login />} />
+              <Route path="signup" element={<Signup />} />
+              <Route path="forgot" element={<Forgot />} />
+            </>
+          )}
         </Route>
 
         {/* All other routes */}

@@ -11,9 +11,40 @@ export const getBackendURL = () =>
     : process.env.REACT_APP_PROD_BACKEND_ENDPOINT;
 
 export const getHumanDateFromEpoch = (epoch) => {
-  return new Date(Number(epoch)).toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  });
+  return (
+    new Date(Number(epoch)).toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    }) || epoch
+  );
+};
+export const getHumanTimeFromEpoch = (epoch) => {
+  return (
+    new Date(Number(epoch)).toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    }) || epoch
+  );
+};
+
+export const flattenObject = (ob) => {
+  var toReturn = {};
+
+  for (var i in ob) {
+    if (!ob.hasOwnProperty(i)) continue;
+
+    if (typeof ob[i] == "object" && ob[i] !== null) {
+      var flatObject = flattenObject(ob[i]);
+      for (var x in flatObject) {
+        if (!flatObject.hasOwnProperty(x)) continue;
+
+        toReturn[i + "." + x] = flatObject[x];
+      }
+    } else {
+      toReturn[i] = ob[i];
+    }
+  }
+  return toReturn;
 };

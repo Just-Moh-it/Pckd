@@ -14,7 +14,7 @@ ReactDOM.render(
   <Provider store={store}>
     <ApolloProvider client={client}>
       <ThemeProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.REACT_APP_BASENAME || ""}>
           <App />
 
           {/* Notifications - Toast Provider */}
@@ -22,9 +22,9 @@ ReactDOM.render(
             toastOptions={{
               className: "",
               style: {
-                border: "1px solid #713200",
+                border: "1px solid #7F5EE4",
                 padding: "16px",
-                color: "#713200",
+                color: "#7F5EE4",
               },
             }}
           />

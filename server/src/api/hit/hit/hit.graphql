@@ -9,6 +9,13 @@ type hit {
   location: location
   browser: browser
   os: os
+
+  createdAt: String
+  updatedAt: String
+}
+
+type Query {
+  hit(id: ID!): hit
 }
 
 type timezone {

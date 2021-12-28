@@ -7,33 +7,35 @@ module.exports = {
       // Extract db from context
       const { prisma } = ctx;
 
+      // Get args
+      const { title, target } = args;
+
+      // Get user Id
+      const userId = ctx.getUserId(ctx, (throwErrors = false));
+
       // 1. Get Pckd String
       let pckd;
       // check if pckd is passed in, else throw error
-      if (args.hasOwnProperty("pckd")) {
+      if (args.hasOwnProperty("pckd") && args.pckd) {
         pckd = args.pckd;
 
         // check if pckd is valid
         if (await isDuplicatePckd(prisma, pckd)) {
-          throw new Error("Duplicate Pckd");
+          throw new Error(
+            "The custom backhalf already exists, try a different one."
+          );
         }
       } else {
         pckd = await createRandomPckd(prisma);
       }
 
-      // 2. Get Target
-      const { target, title } = args;
+      // 2. Select data
       let data = {
         pckd,
         target,
-        title,
+        userId,
+        title: userId ? title : null,
       };
-
-      // 3. Check if user is authenticated, else create anonymous record
-      const userId = ctx.getUserId(ctx);
-      if (userId) {
-        data = { ...data, userId };
-      }
 
       // 3. Create Pckd
       await prisma.pckd.create({

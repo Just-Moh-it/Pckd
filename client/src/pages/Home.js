@@ -1,20 +1,38 @@
 import React from "react";
 import CreatePckd from "../components/pckd/CreatePckd";
-import { useSelector } from "react-redux";
-import Loading from "../components/Loading/Loading";
 import NewNav from "../components/NewNav";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
+const ContentWrapper = styled.div`
+  flex-grow: 1;
+  margin-top: 100px;
+`;
+
+const FooterWrapper = styled.footer`
+  text-align: center;
+  border-top: 1px solid #dadada;
+  margin: 100px 70px 10px;
+  padding: 30px;
+`;
 
 const Home = () => {
-  const { isLoggedIn, loginAttempted } = useSelector((state) => ({
-    isLoggedIn: !!state.auth.userInfo.id,
-    loginAttempted: !!state.auth.loginAttempted,
-  }));
 
   return (
-    <>
+    <Wrapper>
       <NewNav />
-      {loginAttempted ? <CreatePckd /> : <Loading />}
-    </>
+      <ContentWrapper>
+        <CreatePckd />
+      </ContentWrapper>
+      <FooterWrapper>
+        &copy; Raghu Raja - WLV University {new Date().getFullYear()}
+      </FooterWrapper>
+    </Wrapper>
   );
 };
 

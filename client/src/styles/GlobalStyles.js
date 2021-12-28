@@ -50,6 +50,35 @@ export default createGlobalStyle`
   }
 
   a {
-    color: inherit;
+    color: ${(props) => props.theme.accentColor};
+  }
+
+  ${"" /* Modal Styles */}
+  .modal {
+    position: absolute;
+    max-width: 500px;
+    padding: 100px 100px 180px;
+    max-height: 200px;
+    top: 50%;
+    left: 50%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    background-color: purple;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+
+    text-align: center;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #00000010;
   }
 `;

@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { getCompanyLogoLinkFromURI } from "../utils";
+
+import NotFound from "../assets/icons/not-found.svg";
 
 const ListItemStyles = styled.div`
   display: flex;
@@ -44,8 +45,7 @@ const LeftItem = styled.div`
     width: 45px;
     /* cover the image */
     object-fit: cover;
-    
-}
+  }
 `;
 
 const RightItem = styled.div`
@@ -54,7 +54,7 @@ const RightItem = styled.div`
   .item svg {
     width: 15px;
     height: 15px;
-    margin-bottom: -3px;
+    margin-bottom: -1px;
     display: inline-block;
   }
 
@@ -62,6 +62,7 @@ const RightItem = styled.div`
   .subtitle,
   .byline {
     display: block;
+    text-overflow: ellipsis;
   }
 
   .subtitle p {
@@ -69,6 +70,14 @@ const RightItem = styled.div`
     font-size: 12px;
     line-height: 9px;
     color: #7f5ee4;
+  }
+
+  & p:not(.title) {
+    text-overflow: ellipsis;
+    max-width: 150px;
+    max-height: 16px;
+    overflow: hidden;
+    /* white-space: nowrap; */
   }
 
   .item,
@@ -150,6 +159,9 @@ const ListItem = ({
               src={leftIcon?.src}
               alt={leftIcon?.hover}
               className={`${leftIcon?.rounded && "rounded"}`}
+              onError={(e) => {
+                e.target.src = NotFound;
+              }}
             />
           </>
         ) : (
@@ -163,8 +175,8 @@ const ListItem = ({
         <RightItem>
           {/* Subtitle */}
           <div className="subtitle">
-            {rightItem.subtitleItems.map((subtitle) => (
-              <div className="item" title={subtitle.icon.hover}>
+            {rightItem.subtitleItems.map((subtitle, idx) => (
+              <div className="item" key={idx} title={subtitle.icon.hover}>
                 {subtitle.icon.src}
                 {subtitle.link ? (
                   <Link to={subtitle.link}></Link>
@@ -180,8 +192,8 @@ const ListItem = ({
           </div>
           {/* Byline */}
           <div className="byline">
-            {rightItem.bylineItems.map((byline) => (
-              <div className="item" title={byline.icon.hover}>
+            {rightItem.bylineItems.map((byline, idx) => (
+              <div className="item" key={idx} title={byline.icon.hover}>
                 {byline.icon.src}
                 {byline.link ? (
                   <Link to={byline.link}></Link>

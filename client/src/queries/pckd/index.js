@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const CREATE_PCKD_MUTATION = gql`
-  mutation createCustomPckd($target: String!, $pckd: String) {
-    createPckd(target: $target, pckd: $pckd)
+  mutation createCustomPckd($target: String!, $pckd: String, $title: String) {
+    createPckd(target: $target, pckd: $pckd, title: $title)
   }
 `;
 

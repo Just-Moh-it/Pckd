@@ -1,20 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 
+import NewNav from "../../../components/NewNav";
+
 // Items
 import LeftWrapper from "./LeftWrapper";
 import MainWrapper from "./MainWrapper";
 import RightWrapper from "./RightWrapper";
 
-// Icons
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* height: 100%; */
+  overflow: hidden;
+`;
 
 const DashboardWrapper = styled.div`
   padding: 26px 42px 0;
-  height: 90%;
-  display: grid;
+  height: 100%;
+  display: flex;
   grid-template-columns: 330fr 614fr 161fr;
   grid-template-areas: "left main right";
   background-color: #f3f8fe;
+  flex-grow: 1;
 
   /* Change font-family of all child elements */
   & * {
@@ -77,20 +86,65 @@ const DashboardWrapper = styled.div`
     max-width: 24px;
     min-width: 5px;
   }
+
+  & .detail {
+    margin: 6px 0;
+  }
+
+  & .detail-content {
+    padding: 20px;
+  }
+
+  & .detail .header span,
+  & .detail .title {
+    font-weight: 500;
+    font-size: 1em;
+    line-height: 18px;
+    /* identical to box height */
+
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+  }
+
+  & .detail .title {
+    color: #6b6d6f;
+  }
+
+  & .detail .detail-content-item {
+    min-width: 200px;
+  }
+
+  & .detail .row.top .detail-content-item {
+    min-width: unset;
+  }
+
+  & .detail .detail-content-item .header span {
+    font-size: 0.8em;
+    color: ${(props) => props.theme.accentColor};
+    margin-left: 5px;
+  }
+  & .detail .detail-content-item .header svg {
+    color: inherit;
+    max-width: 1em;
+    margin-bottom: -3px;
+    display: inline-block;
+  }
 `;
 
 const Dashboard = () => {
   return (
-    <DashboardWrapper>
-      {/* Left Wrapper */}
-      <LeftWrapper className="main-wrapper"></LeftWrapper>
+    <Wrapper>
+      <NewNav />
 
-      {/* Main Wrapper */}
-      <MainWrapper className="main-wrapper">Main</MainWrapper>
-
-      {/* Right Wrapper */}
-      <RightWrapper className="main-wrapper">Right</RightWrapper>
-    </DashboardWrapper>
+      <DashboardWrapper>
+        {/* Left Wrapper */}
+        <LeftWrapper className="left-wrapper"></LeftWrapper>
+        {/* Main Wrapper */}
+        <MainWrapper className="main-wrapper">Main</MainWrapper>
+        {/* Right Wrapper */}
+        <RightWrapper className="right-wrapper">Right</RightWrapper>
+      </DashboardWrapper>
+    </Wrapper>
   );
 };
 

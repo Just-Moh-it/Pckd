@@ -9,7 +9,7 @@ module.exports = {
       const { prisma } = ctx;
 
       // 1. Get Pckd by taget
-      const { target, id, userId } = await prisma.pckd.findUnique({
+      const data = await prisma.pckd.findUnique({
         where: {
           pckd,
         },
@@ -21,18 +21,18 @@ module.exports = {
       });
 
       // 2. Return target, else throw error
-      if (!target) {
+      if (!data || !data.target) {
         throw new Error("Target not found");
       }
 
       // 3. Insert hit inside table
       // only if link was created by authenticated user
       // else ignore
-      if (userId) {
-        handleHitInsert(ctx, id);
+      if (data.userId) {
+        handleHitInsert(ctx, data.id);
       }
 
-      return target;
+      return data.target;
     },
   },
 };
@@ -41,7 +41,7 @@ const handleHitInsert = async (ctx, id) => {
   const { prisma } = ctx;
 
   try {
-    const testMode = true;
+    const testMode = process.env.NODE_ENV === "development" ? true : false;
 
     // 3.1 Get ip of request, and check if it exists
     const ipRaw = testMode

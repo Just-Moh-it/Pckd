@@ -4,7 +4,6 @@ import { PING } from "../queries/ping";
 
 const Ping = () => {
   const { loading, error, data } = useQuery(PING);
-  console.log(PING)
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
