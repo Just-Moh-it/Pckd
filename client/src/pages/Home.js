@@ -30,7 +30,7 @@ const Home = () => {
         <CreatePckd />
       </ContentWrapper>
       <FooterWrapper>
-        &copy; Raghu Raja - WLV University {new Date().getFullYear()}
+        &copy; {new Date().getFullYear()}
       </FooterWrapper>
     </Wrapper>
   );

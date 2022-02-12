@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Just-Moh-it/Pckd/stargazers">
-    <img src="assets/Readme-assets/logo-4x.png" alt="Project Banner" height="150">
+    <img src="assets/Readme-assets/logo-4x.png" alt="Project Banner" height="100">
   </a>
 
   <p align="center">
@@ -13,45 +13,13 @@
     <a href="https://github.com/Just-Moh-it/Pckd"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://www.figma.com/file/MVq5Q3fhVJB2r70r7I3nJ3/Pckd?node-id=102%3A2">Design file on Figma</a>
+    <a href="https://www.figma.com/file/CWmPgKuSWm6dvihp1XXTn1/Pckd-2?node-id=230%3A427">Design file on Figma</a>
     ·
     <a href="https://github.com/Just-Moh-it/Pckd/issues">Report Bug</a>
     ·
     <a href="https://github.com/Just-Moh-it/Pckd/issues">Request Feature</a>
   </p>
 </div>
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>📃 Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#screenshots">Screenshots</a></li>
-        <li><a href="#motivation">Motivation</a></li>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#extras">Extras</a></li>
-        <ul>
-            <li><a href="#adding-new-users">Adding New Users</a></li>
-        </ul>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
 
 <!-- ABOUT THE PROJECT -->
 
@@ -70,16 +38,29 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-Pckd is an open source, design-focued and the coolest Python-based Hotel Management System on GitHub. Built with Python 3, Tkinter and MySQL, and initially created as a high school CS project, it comprises of all the necessary Hotel Management **features** like:
+Pckd is an full-customizable, open source, free-to-use, usable-design-focued, tracking-intensive URL Shortener with awesome features, and **supports**:
 
-- Login 🔑 and Authentication through 🐬 MySQL database 😍
-- The ability to add, update, view and delete new records for:
-  - 🔐 Rooms,
-  - 💁 Guests, and
-  - ⏰ Reservations
+- Creating short urls (we call them 🔗 `pckd`s) from long ones with, or without an account
+- Customize back-halfs on every 🔗 pckd
+- Deploy to custom 🔌 URL and Infrastructure 💿
+- Track 🕵️‍♂️ each and every click on a 🔗 pckd, and retrieve
+
+  - 🌐 IP address (Spoof-resistant)
+  - 🕸️ ISP Name
+  - 🗺️ IP-Location
+  - 💻 Device details like OS Version and Device Model
+  - 🪟 Browser Name and including version
+
+  It's Just crazy how powerful it is! 🤯
+
+- Edit links after they're created
+- Custom Loading/Redirecting Screen 💯
+- [On Roadmap!] Quick Redirections in 150ms! 😱
+- Fast, Reliable and Secure 🔐
 - Secret Storage 👮 and handling using 💻 environment variables
+- Built on Modern and Well-used Technologies like React, Graphql & NodeJS
 
-This project was created as a proof that ancient frameworks like Tkinter could be used to create impressive applications with beautiful user interfaces.
+This project was created to be the most powerful URL shortenter for the public, so no wonder it's so feature-rich
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -107,27 +88,24 @@ Here is a sneak peak of the application and it's visuals 😍:
     </tr>
     <tr>
         <td>
-            <img src="assets/Readme-assets/screenshots/add-reservations.png" alt="Add Reservation Page" />
+            <img src="assets/Readme-assets/screenshots/account.png" alt="Account Page" />
             <br />
-            <p align="center">Add Reservation Page</p></td>
+            <p align="center">Account Page</p></td>
         <td>
-            <img src="assets/Readme-assets/screenshots/update-reservations.png" alt="Update Reservation Screen" />
+            <img src="assets/Readme-assets/screenshots/reset.png" alt="Reset Password Screen" />
             <br />
-            <p align="center">Update Reservation</p></td>
+            <p align="center">Reset Password</p></td>
     </tr>
     <tr>
-        <td>
-            <img src="assets/Readme-assets/screenshots/view-reservations.png" alt="View Reservations Screen" />
+        <td colspan="2">
+            <img src="assets/Readme-assets/screenshots/home.png" alt="Home Page" />
             <br />
-            <p align="center">View Reservations</p></td>
-        <td>
-            <img src="assets/Readme-assets/screenshots/logout.png" alt="Confirm Logout" />
-            <br />
-            <p align="center">Confirm Logout</p></td>
+            <p align="center">Home Page</p>
+        </td>
     </tr>
 </table>
 
-Want to create your own iteration? [View the designs on Figma](https://www.figma.com/file/MVq5Q3fhVJB2r70r7I3nJ3/Pckd?node-id=102%3A2), and then export to Python code with [Tkinter Designer](https://github.com/ParthJadhav/Tkinter-Designer) ☄️.
+Want to create your own iteration? [View the designs on Figma](https://www.figma.com/file/CWmPgKuSWm6dvihp1XXTn1/Pckd-2?node-id=230%3A427)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -135,12 +113,7 @@ Want to create your own iteration? [View the designs on Figma](https://www.figma
 
 ## 🤗 Motivation
 
-This project was created as a 12th grade Computer Science Project. Extra efforts were put in to make it stand out among others' projects, and since it was never meant to be used in real life, practicality was not the top most concern.
-
-<details>
-    <summary>More info...</summary>
-    <p>As per CBSE (the Central Education Board) in India, students with Informatics Practices as a subject need to show their knowledge of Python and MySQL by creating an application that gets evaluated at the end of the year by an examiner/teacher from other schools, and hence the final grades for high school are determined. So, the application was a culmination of team effort, endurance and dedication of our duo. You could see through the commit history, where we started, how it stagnated and then we got the project where it is today.</p>
-</details>
+After looking at all the `aka.ms` links out there which flood windows, along with the numerout times aving been prompted to buy premium plans from `bit.ly` while shortening my URLs, the decision of having a personal URL shortener hosted on a custom domain for free caught wind. Starting out by looking at GitHub for a JavaScript-based URL shortener, no one stood out and had minimal features. So, I decided to create my own URL shortener along with the help of a few friends, and got what this repository contains.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -148,20 +121,18 @@ This project was created as a 12th grade Computer Science Project. Extra efforts
 
 The following technologies were involved in the making of this project.
 
-- [Python 3](https://python.org/) 🐍 - For running the main application code
-- [Tkinter](https://docs.python.org/3/library/tk.html/) & [TTk](https://docs.python.org/3/library/tkinter.ttk.html) - For the user Interface
-- [MySQL Server](https://www.mysql.com/) 🐬 - For handling database and queries
-- [MySQL Connector Python](https://dev.mysql.com/doc/connector-python/en/) - For querying MySQL through python
-- [Tkinter Designer](https://github.com/ParthJadhav/Tkinter-Designer) ☄️ - For exporting the Figma user interface to python code
-- [Numpy](https://numpy.org/) 🧮 - As a dependency for Matplotlib
-- [Matplotlib](https://matplotlib.org/) 📈 - For creating and showing graphs and visualizations
-- [Python Dotenv](https://github.com/theskumar/python-dotenv) 🤫 - For loading environment variables from the [`.env` file](https://zetcode.com/javascript/dotenv/)
+- [React Js](https://reactjs.org/) ⚛️ - For the frontend of the app
+- [Apollo Graphql Server v3](https://www.apollographql.com/docs/apollo-server/) 🕸️ - For querying the backend from the frontend efficiently
+- [Graphql Template By Mohit](https://github.com/Just-Moh-it/grapqhl-backend) 🧩 - Boilerplate Template used for initializing the backend
+- [Prisma](https://www.prisma.io/) 💿 - The ORM used for the app
+- [PostgreSQL](https://www.postgresql.org/) 🐘 - For handling data storage
+- [Redux](https://redux.js.org/) w/ [Redux Toolkit](https://redux-toolkit.js.org/) - For handling states accross the application
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
-# 🤯 Getting Started
+# 🤯 Quick Start Guide
 
 To get started with having your own instance of Pckd, follow the steps described in the following section
 
@@ -171,9 +142,10 @@ _**NOTE**_: Here are the [**DETAILED INSTRUCTIONS**](/docs/getting-started.md)
 
 You will need these to be already installed:
 
-- Python 3
-- PiP 3
-- MySQL Server
+- [NodeJS](https://nodejs.org/) 14+ and [NPM](https://npmjs.com/)
+- [Postgresql](https://www.postgresql.org/download/)
+
+And that's it
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -181,12 +153,13 @@ You will need these to be already installed:
 
 Follow these steps to get started with your own instance of Pckd
 
-1. Clone the repo and `cd` to the folder
-1. Install PiP dependencies `pip install -r requirements.txt`
-1. Setup the database from the [`sql/schema.sql`](sql/schema.sql) schema file
-1. Rename `.env.example` to `.env` and replace values with your credentials
-1. Install the fonts from the `assets` folder
-1. Run the `main.py` file and use `username` and `password` as the default credentials on the login screen.
+1. Clone the repo and `cd` to the folder base of this repo
+1. Run command `npm run init` to install all the dependencies, and initialize environment files in both folders
+1. Obtain a free api key from [IP Registry](https://ipregistry.co/) (for IP address tracking info lookups)
+1. Create a postgresql database named pckd and note down the connection Username and Password
+1. Manually go to both the `client` and `server` folder and fill in the values in the `.env` file
+1. Return to the base direcotry and run `npm run dev` to test the app
+1. To promot to production, run `npm start`
 
 If you have any problems following the steps, [here are the detailed instructions](/docs/getting-started.md)
 
@@ -194,13 +167,24 @@ If you have any problems following the steps, [here are the detailed instruction
 
 # 🤩 Roadmap
 
-- [x] ~~Add singup and forget password capabilites~~ ([issue #3](/issues/3))
-- [ ] Adding bcrypt hashing to passwords ([Issue #2](/issues/2))
-- [ ] Adding Support for showing MySQL errors if database is not reachable ([Issue #4](/issues/4))
+This project is far from perfect, and we'll reach there one day, or at least get close. 
+
+- [x] Add forgetten password-reset capabilites ([issue #3](/issues/3))
+- [ ] Adding extra features such as enabling or disabling tracking on certain links ([Issue #2](/issues/2))
+- [ ] Quick redirects using expressjs directly from the backend, wihtout loading react and redux (planned ~150ms)
 
 See the [open issues](https://github.com/Just-Moh-it/Pckd/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+# 📐 How it works
+
+Here's a diagram explaining exactly how everything fits into place
+
+<div align="center">
+<img src="assets/Readme-assets/data-diagram.png" height=300/>
+<p>Here's how everything fits into the scene</p>
+</div>
 
 <!-- CONTRIBUTING -->
 
@@ -219,6 +203,35 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+# 👋 Reach Out
+
+You can reach out to Mohit Yadav, the main creator of the app (for now) at mail ([mohit@mohityadav.codes](mailto:mohit@mohityadav.codes)), [Twitter](https://twitter.com/Just_Moh_it) or [Discord](https://discord.gg/cqNbdEmazR)
+
+<table>
+  <tr>
+    <td>
+      <a href="https://discord.gg/cqNbdEmazR">
+        <img src="assets/Readme-assets/reach-out/discord.png" alt="Join Discord Server" />
+        <p align="center">If you Have any questions</p>
+      </a>
+    </td>
+    <td>
+      <a href="https://www.buymeacoffee.com/JustMohit">
+        <img src="assets/Readme-assets/reach-out/coffee.png" alt="Buy me a coffee" />
+        <p align="center">So I can keep on going</p>
+      </a>
+    </td>
+    <td>
+      <a href="https://mohityadav.codes">
+        <img src="assets/Readme-assets/reach-out/website.png" alt="Visit website">
+        <p align="center">Awesome projects</p>
+      </a>
+    </td>
+  </tr>
+</table>
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- LICENSE -->
 
 # 😋 License
@@ -227,32 +240,20 @@ Distributed under the MIT License. See [`LICENSE.txt`](/LICENSE.txt) for more in
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- CONTACT -->
-
-# 🤙😅 Contact
-
-[Mohit Yadav](https://github.com/Just-Moh-it) will be handling and maintaining the project and add releevant updates if necessary. Here are the contact details:
-
-Mohit Yadav - 🕊 [@just_moh_it](https://twitter.com/just_moh_it) - 📨 [me@mohityadav.codes](mailto:me@mohityadav.codes)
-
-Project Link: [https://github.com/Just-Moh-it/Pckd](https://github.com/Just-Moh-it/Pckd)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 <!-- ACKNOWLEDGMENTS -->
 
 # 😊 Acknowledgments
 
-- **Parth Jadhav and team** for their Amazing [Tkinter Designer](https://github.com/ParthJadhav/Tkinter-Designer) ☄️. This project would not have been what it is and looks without it. Highly recommend checking it out.
-- [Nikuu 3d Illustration Pack by Paperpillar
-  ](https://www.figma.com/community/file/1000311109311441524) - Illustrations used on the dashboard and the login page
-- [Montserrat Font](https://fonts.google.com/specimen/Montserrat) Creators
+- [Parth Jadhav](https://github.com/ParthJadhav) for ideas and support
+- [Respective Google Font](https://fonts.google.com) Creators
+- [AR Shakir](https://dribbble.com/shots/15223174-Project-Management-Dashboard-UI-Exploration) - Inspiration for dashboard UI design
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # 🥰 Endnode
 
 Just one last thing, if you have reached this far, why not consider giving a star to the repo like [many amazing people](/stargazers) already have. This keeps us going and we love to see that people like our projects, and motivates us to make more of these. With that, thank you loads 😊🥰
+<p align="right">~ Mohit</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

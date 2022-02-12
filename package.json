@@ -1,0 +1,35 @@
+{
+  "name": "pckd",
+  "version": "1.0.0",
+  "description": "<div id=\"top\">Pckd - Not just a URL Shortener. Open Source, fully customizable</div>",
+  "main": "server/src/index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev-server": "cd server && npm run dev",
+    "dev-client": "cd client && npm start",
+    "prod-server": "cd server && npm start",
+    "prod-client": "cd client && npm run build",
+
+    "server": "cd server && nodemon server.js",
+    "client": "cd client && npm run start",
+    "server-install": "cd server && mv .env.example .env && npm install",
+    "client-install": "cd client && mv .env.example .env && npm install",
+    
+    "init": "concurrently \"npm run server-install\" \"npm run client-install\"",
+    "dev": "concurrently \"npm run dev-server\" \"npm run dev-client\"",
+    "start": "concurrently \"npm run prod-server\" \"npm run prod-client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Just-Moh-it/pckd.git"
+  },
+  "keywords": [],
+  "author": "Mohit Yadav",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Just-Moh-it/pckd/issues"
+  },
+  "homepage": "https://github.com/Just-Moh-it/pckd#top"
+}
