@@ -187,7 +187,7 @@ const CreatePckd = () => {
   }, [data]);
 
   const getFullUrl = () =>
-    process.env.REACT_APP_DEPLOYMENT_URL + "/" + (data?.createPckd || "null");
+    `${new URL(window.location.href).origin}/${data?.createPckd || "error"}`;
 
   if (loading) return <p>Loading ...</p>;
   if (error) {
