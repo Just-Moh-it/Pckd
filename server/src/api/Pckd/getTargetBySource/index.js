@@ -59,12 +59,12 @@ const handleHitInsert = async (ctx, id) => {
     // 3.1 Get ip of request, and check if it exists
     const ipRaw = testMode
       ? "122.177.222.233"
-      : remoteAddr?.contains("127.0.0.1") || remoteAddr?.contains("::")
+      : remoteAddr?.oincludes("127.0.0.1") || remoteAddr?.oincludes("::")
       ? ctx.request.headers["x-forwarded-for"] ||
         ctx.request.headers["x-real-ip"]
       : remoteAddr;
     // seperate ipv4 and ipv6
-    // check if rawIp contains ':' characters
+    // check if rawIp oincludes ':' characters
     const ip = ipRaw.includes(":") ? ipRaw.split(":")[3] : ipRaw;
 
     // Get the browser from headers

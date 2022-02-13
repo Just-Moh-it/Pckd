@@ -4,7 +4,6 @@ import styled, {
 } from "styled-components";
 import { ThemeContext } from "./context/ThemeContext";
 import Router from "./Router";
-import { GeistProvider, CssBaseline } from "@geist-ui/react";
 import { useDispatch } from "react-redux";
 import { initializeUser } from "./features/authSlice";
 
@@ -40,13 +39,10 @@ const App = () => {
 
   return (
     <StyledThemeProvider theme={theme}>
-      <GeistProvider>
-        <CssBaseline />
-        <Wrapper>
-          <GlobalStyles />
-          <Router />
-        </Wrapper>
-      </GeistProvider>
+      <Wrapper>
+        <GlobalStyles />
+        <Router />
+      </Wrapper>
     </StyledThemeProvider>
   );
 };

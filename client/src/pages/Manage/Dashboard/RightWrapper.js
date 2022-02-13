@@ -148,7 +148,10 @@ const Div404Wrapper = styled.div`
 `;
 
 const RightWrapper = () => {
-  const activePckd = useSelector((state) => state?.dashboard?.activePckd);
+  const { activePckd, allPckds } = useSelector((state) => ({
+    activePckd: state?.dashboard?.activePckd,
+    allPckds: state?.dashboard?.rawUserPckds,
+  }));
   const activeHit = useSelector((state) => state?.dashboard?.activeHit);
   const [filterInput, setFilterInput] = useState("");
   const dispatch = useDispatch();
@@ -198,7 +201,7 @@ const RightWrapper = () => {
       </div>
 
       {/* Main Content */}
-      {activePckd?.hitCount > 0 && activePckd?.hits?.length > 0 ? (
+      {allPckds?.length > 0 && (activePckd?.hitCount > 0 && activePckd?.hits?.length > 0 ? (
         <div className="flex-height">
           {activeHit && (
             <div className="detail location">
@@ -352,7 +355,7 @@ const RightWrapper = () => {
             </>
           )}
         </Div404Wrapper>
-      )}
+      ))}
     </RightWrapperStyles>
   );
 };

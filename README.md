@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Just-Moh-it/Pckd/stargazers">
-    <img src="assets/Readme-assets/logo-4x.png" alt="Project Banner" height="100">
+    <img src="https://user-images.githubusercontent.com/48997634/153762074-d0aaa066-1c4e-48a2-9c08-44bc438c7a0f.png" alt="Project Banner" height="100">
   </a>
 
   <p align="center">
@@ -25,8 +25,8 @@
 
 # 💁 About The Project
 
-<a href="https://projects.mohityadav.codes/#Pckd">
-    <img src="assets/Readme-assets/banner.png" alt="Project Banner">
+<a href="https://mohityadav.codes/projects/Pckd">
+    <img src="https://user-images.githubusercontent.com/48997634/153762049-bd957906-e7ee-4df2-abcf-2c76a0ef7376.png" alt="Project Banner">
 </a>
 
 <!-- PROJECT SHIELDS -->
@@ -72,34 +72,34 @@ Here is a sneak peak of the application and it's visuals 😍:
 <table>
     <tr>
         <td colspan="2">
-            <img src="assets/Readme-assets/screenshots/dashboard.png" alt="Dashboard Page" />
+            <img src="https://user-images.githubusercontent.com/48997634/153762057-3b3792ec-cfd6-4994-ba77-f973b610bac8.png" alt="Dashboard Page" />
             <br />
             <p align="center">Dashboard Page</p>
         </td>
     </tr>
     <tr>
         <td>
-            <img src="assets/Readme-assets/screenshots/login.png" alt="Login Screen" />
+            <img src="https://user-images.githubusercontent.com/48997634/153762072-2c1fb032-f987-4587-938b-589886d6f02d.png" alt="Login Screen" />
             <br />
             <p align="center">Login</p></td>
         <td>
-            <img src="assets/Readme-assets/screenshots/signup.png" alt="Signup" />
+            <img src="https://user-images.githubusercontent.com/48997634/153762076-2d353ff0-1269-4d52-a5f8-155a2406c927.png" alt="Signup" />
             <br />
             <p align="center">Signup</p></td>
     </tr>
     <tr>
         <td>
-            <img src="assets/Readme-assets/screenshots/account.png" alt="Account Page" />
+            <img src="https://user-images.githubusercontent.com/48997634/153762042-58d55b0d-61cb-4e4e-a702-a46f455d7454.png" alt="Account Page" />
             <br />
             <p align="center">Account Page</p></td>
         <td>
-            <img src="assets/Readme-assets/screenshots/reset.png" alt="Reset Password Screen" />
+            <img src="https://user-images.githubusercontent.com/48997634/153762075-62f5f946-93fa-4777-b663-fd8cfd6eb198.png" alt="Reset Password Screen" />
             <br />
             <p align="center">Reset Password</p></td>
     </tr>
     <tr>
         <td colspan="2">
-            <img src="assets/Readme-assets/screenshots/home.png" alt="Home Page" />
+            <img src="https://user-images.githubusercontent.com/48997634/153762070-9ce6e657-d1a3-4549-9d8b-245f1470d440.png" alt="Home Page" />
             <br />
             <p align="center">Home Page</p>
         </td>
@@ -137,7 +137,7 @@ The following technologies were involved in the making of this project.
 
 To get started with having your own instance of Pckd, follow the steps described in the following section
 
-_**NOTE**_: Here are the [**DETAILED INSTRUCTIONS**](/docs/getting-started.md)
+_**NOTE**_: Here are the [**DETAILED INSTRUCTIONS**](docs/getting-started.md)
 
 ## 🌂 Prerequisites
 
@@ -163,20 +163,20 @@ Follow these steps to get started with your own instance of Pckd
 1. Return to the base direcotry and run `npm run dev` to test the app
 1. To promote to production, run `npm run build-client` and then `npm start`
 
-If you have any problems following the steps, [here are the detailed instructions](/docs/getting-started.md)
+If you have any problems following the steps, [here are the detailed instructions](docs/getting-started.md)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # 🤩 Roadmap
 
-This project is far from perfect, and we'll reach there one day, or at least get close. 
+This project is far from perfect, and we'll reach there one day, or at least get close.
 
-- [x] Add forgetten password-reset capabilites ([issue #3](/issues/3))
-- [ ] Adding extra features such as enabling or disabling tracking on certain links ([Issue #2](/issues/2))
+- [x] Add forgetten password-reset capabilites ([issue #3](issues/3))
+- [ ] Adding extra features such as enabling or disabling tracking on certain links ([Issue #2](issues/2))
 - [ ] Quick redirects using expressjs directly from the backend, wihtout loading react and redux (planned ~150ms)
 - [ ] Adding docker-compose supported quick installation
 
-Known Issues: 
+Known Issues:
 
 - [ ] Hit not registered if IP not provided
 
@@ -189,7 +189,7 @@ See the [open issues](https://github.com/Just-Moh-it/Pckd/issues) for a full lis
 Here's a diagram explaining exactly how everything fits into place
 
 <div align="center">
-<img src="assets/Readme-assets/data-diagram.png" height=300/>
+<img src="https://user-images.githubusercontent.com/48997634/153762066-548fe751-e681-4af0-8672-0a459895a8b2.png" height=300/>
 <p>Here's how everything fits into the scene</p>
 </div>
 
@@ -218,19 +218,19 @@ You can reach out to Mohit Yadav, the main creator of the app (for now) at mail 
   <tr>
     <td>
       <a href="https://discord.gg/cqNbdEmazR">
-        <img src="assets/Readme-assets/reach-out/discord.png" alt="Join Discord Server" />
+        <img src="https://user-images.githubusercontent.com/48997634/153762069-df7f5900-e685-45c9-8d30-a1a73bc28a8f.png" alt="Join Discord Server" />
         <p align="center">If you Have any questions</p>
       </a>
     </td>
     <td>
       <a href="https://www.buymeacoffee.com/JustMohit">
-        <img src="assets/Readme-assets/reach-out/coffee.png" alt="Buy me a coffee" />
+        <img src="https://user-images.githubusercontent.com/48997634/153762055-e1f311aa-1693-4dd9-9c19-e41cc17d2505.png" alt="Buy me a coffee" />
         <p align="center">So I can keep on going</p>
       </a>
     </td>
     <td>
       <a href="https://mohityadav.codes">
-        <img src="assets/Readme-assets/reach-out/website.png" alt="Visit website">
+        <img src="https://user-images.githubusercontent.com/48997634/153762079-d420fac9-ea94-48a9-b1ab-be045b83bef4.png" alt="Visit website">
         <p align="center">Awesome projects</p>
       </a>
     </td>
@@ -243,7 +243,7 @@ You can reach out to Mohit Yadav, the main creator of the app (for now) at mail 
 
 # 😋 License
 
-Distributed under the MIT License. See [`LICENSE.txt`](/LICENSE.txt) for more information.
+Distributed under the MIT License. See [`LICENSE.txt`](LICENSE.txt) for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -259,7 +259,8 @@ Distributed under the MIT License. See [`LICENSE.txt`](/LICENSE.txt) for more in
 
 # 🥰 Endnode
 
-Just one last thing, if you have reached this far, why not consider giving a star to the repo like [many amazing people](/stargazers) already have. This keeps us going and we love to see that people like our projects, and motivates us to make more of these. With that, thank you loads 😊🥰
+Just one last thing, if you have reached this far, why not consider giving a star to the repo like [many amazing people](stargazers) already have. This keeps us going and we love to see that people like our projects, and motivates us to make more of these. With that, thank you loads 😊🥰
+
 <p align="right">~ Mohit</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -277,4 +278,3 @@ Just one last thing, if you have reached this far, why not consider giving a sta
 [issues-url]: https://github.com/Just-Moh-it/Pckd/issues
 [license-shield]: https://img.shields.io/github/license/Just-Moh-it/Pckd.svg?style=flat-square&logo=gmail
 [license-url]: https://github.com/Just-Moh-it/Pckd/blob/master/LICENSE.txt
-[logo]: assets/Readme-assets/logo-full.png

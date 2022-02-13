@@ -10,29 +10,24 @@
     "prod": "node src/."
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Mohit Yadav",
+  "license": "MIT",
   "dependencies": {
     "@graphql-tools/load-files": "^6.4.0",
     "@graphql-tools/merge": "^8.1.2",
     "@graphql-tools/schema": "^8.2.0",
     "@ipregistry/client": "^4.3.0",
     "@prisma/client": "^3.1.1",
-    "ajv": "^8.8.2",
     "apollo-server-core": "^3.5.0",
     "apollo-server-express": "^3.5.0",
     "bcryptjs": "^2.4.3",
     "express": "^4.17.2",
-    "flat": "^5.0.2",
     "googleapis": "^92.0.0",
     "graphql": "^15.8.0",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.21",
     "nanoid": "^3.1.28",
     "nodemailer": "^6.7.2",
-    "svg-country-flags": "^1.2.10",
-    "ua-parser-js": "^1.0.2",
-    "whois-ux": "^0.0.2"
+    "ua-parser-js": "^1.0.2"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",

@@ -10,10 +10,11 @@
     "dev-server": "cd server && npm run dev",
     "dev-client": "cd client && npm start",
     "build-client": "cd client && npm run build",
-    
+    "db-init": "npx -y prisma migrate dev --init",
+
     "server": "cd server && nodemon server.js",
     "client": "cd client && npm run start",
-    "server-install": "cd server && mv .env.example .env && npm install",
+    "server-install": "cd server && mv .env.example .env && npm run db-init && npm install",
     "client-install": "cd client && mv .env.example .env && npm install",
 
     "init": "npm i -D nodemon concurrently && concurrently \"npm run server-install\" \"npm run client-install\"",

@@ -1,2 +1,4 @@
 # Cache files
 .DS_Store
+
+server/prisma/migrations
