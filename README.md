@@ -38,7 +38,7 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-Pckd is an full-customizable, open source, free-to-use, usable-design-focued, tracking-intensive URL Shortener with awesome features, and **supports**:
+Pckd is a full-customizable, open source, free-to-use, usable-design-focued, tracking-intensive URL Shortener with awesome features, and **supports**:
 
 - Creating short urls (we call them 🔗 `pckd`s) from long ones with, or without an account
 - Customize back-halfs on every 🔗 pckd
@@ -58,16 +58,16 @@ Pckd is an full-customizable, open source, free-to-use, usable-design-focued, tr
 - [On Roadmap!] Quick Redirections in 150ms! 😱
 - Fast, Reliable and Secure 🔐
 - Secret Storage 👮 and handling using 💻 environment variables
-- Built on Modern and Well-used Technologies like React, Graphql & NodeJS
+- Built on Modern and Well-used Technologies like React, GraphQL & NodeJS
 - Use your own DBMS 🥳. Pckd is compatible with MySQL, PostgreSQL, MongoDB and [many more](https://www.prisma.io/docs/reference/database-reference/supported-databases)
 
-This project was created to be the most powerful URL shortenter for the public, so no wonder it's so feature-rich
+This project was created to be the most powerful URL shortener for the public, so no wonder it's so feature-rich
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## 📸 Screenshots
 
-Here is a sneak peak of the application and it's visuals 😍:
+Here is a sneak peek of the application and it's visuals 😍:
 
 <table>
     <tr>
@@ -114,7 +114,7 @@ Want to create your own iteration? [View the designs on Figma](https://www.figma
 
 ## 🤗 Motivation
 
-After looking at all the `aka.ms` links out there which flood windows, along with the numerout times aving been prompted to buy premium plans from `bit.ly` while shortening my URLs, the decision of having a personal URL shortener hosted on a custom domain for free caught wind. Starting out by looking at GitHub for a JavaScript-based URL shortener, no one stood out and had minimal features. So, I decided to create my own URL shortener along with the help of a few friends, and got what this repository contains.
+After looking at all the `aka.ms` links out there which flood windows, along with the numerous time saving been prompted to buy premium plans from `bit.ly` while shortening my URLs, the decision of having a personal URL shortener hosted on a custom domain for free caught wind. Starting out by looking at GitHub for a JavaScript-based URL shortener, no one stood out and had minimal features. So, I decided to create my own URL shortener along with the help of a few friends, and got what this repository contains.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -122,12 +122,12 @@ After looking at all the `aka.ms` links out there which flood windows, along wit
 
 The following technologies were involved in the making of this project.
 
-- [React Js](https://reactjs.org/) ⚛️ - For the frontend of the app
-- [Apollo Graphql Server v3](https://www.apollographql.com/docs/apollo-server/) 🕸️ - For querying the backend from the frontend efficiently
-- [Graphql Template By Mohit](https://github.com/Just-Moh-it/grapqhl-backend) 🧩 - Boilerplate Template used for initializing the backend
+- [React JS](https://reactjs.org/) ⚛️ - For the frontend of the app
+- [Apollo GraphQL Server v3](https://www.apollographql.com/docs/apollo-server/) 🕸️ - For querying the backend from the frontend efficiently
+- [GraphQL Template By Mohit](https://github.com/Just-Moh-it/grapqhl-backend) 🧩 - Boilerplate Template used for initializing the backend
 - [Prisma](https://www.prisma.io/) 💿 - The ORM used for the app
-- Any 😨 relational or non-relational [database that prisma supports](https://www.prisma.io/docs/reference/database-reference/supported-databases)
-- [Redux](https://redux.js.org/) 🗺️ w/ [Redux Toolkit](https://redux-toolkit.js.org/) - For handling states accross the application
+- Any 😨 relational or non-relational [database that Prisma supports](https://www.prisma.io/docs/reference/database-reference/supported-databases)
+- [Redux](https://redux.js.org/) 🗺️ w/ [Redux Toolkit](https://redux-toolkit.js.org/) - For handling states across the application
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -156,11 +156,11 @@ Follow these steps to get started with your own instance of Pckd
 
 1. Clone the repo and `cd` to the folder base of this repo
 1. Run command `npm run init` to install all the dependencies, and initialize environment files in both folders
-1. Obtain a free api key from [IP Registry](https://ipregistry.co/) (for IP address tracking info lookups)
+1. Obtain a free API key from [IP Registry](https://ipregistry.co/) (for IP address tracking info lookups)
 1. Create a database named pckd in your chosen DBMS and note down the connection Username and Password
 1. Manually go to both the `client` and `server` folder and fill in the values in the `.env` file
 1. Open the [`server/prisma/schema.prisma`](server/prisma/schema.prisma) file and replace `postgresql` with your chosen db name.
-1. Return to the base direcotry and run `npm run dev` to test the app
+1. Return to the base directory and run `npm run dev` to test the app
 1. To promote to production, run `npm run build-client` and then `npm start`
 
 If you have any problems following the steps, [here are the detailed instructions](docs/getting-started.md)
@@ -171,9 +171,9 @@ If you have any problems following the steps, [here are the detailed instruction
 
 This project is far from perfect, and we'll reach there one day, or at least get close.
 
-- [x] Add forgetten password-reset capabilites ([issue #3](issues/3))
+- [x] Add forgotten password-reset capabilities ([issue #3](issues/3))
 - [ ] Adding extra features such as enabling or disabling tracking on certain links ([Issue #2](issues/2))
-- [ ] Quick redirects using expressjs directly from the backend, wihtout loading react and redux (planned ~150ms)
+- [ ] Quick redirects using ExpressJS directly from the backend, without loading react and Redux (planned ~150ms)
 - [ ] Adding docker-compose supported quick installation
 
 Known Issues:
@@ -257,9 +257,9 @@ Distributed under the MIT License. See [`LICENSE.txt`](LICENSE.txt) for more inf
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-# 🥰 Endnode
+# 🥰 Endnote
 
-Just one last thing, if you have reached this far, why not consider giving a star to the repo like [many amazing people](stargazers) already have. This keeps us going and we love to see that people like our projects, and motivates us to make more of these. With that, thank you loads 😊🥰
+Just one last thing, if you have reached this far, why not consider giving a star to the repo like [many incredible people](stargazers) already have. This keeps us going, and we love to see that people like our projects, and motivates us to make more of these. With that, thank you loads 😊🥰
 
 <p align="right">~ Mohit</p>
 
