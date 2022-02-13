@@ -17,6 +17,8 @@ model Pckd {
 
   target String
   pckd   String @unique
+  enableTracking Boolean @default(true)
+  hitCount Int @default(0)
 
   title String?
 

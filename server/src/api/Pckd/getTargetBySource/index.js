@@ -1,5 +1,4 @@
 const isp = require("../../../utils/isp");
-const { getBrowserName } = require("../../../utils/utils");
 var parser = require("ua-parser-js");
 
 module.exports = {
@@ -16,7 +15,8 @@ module.exports = {
         select: {
           target: true,
           id: true,
-          userId: true,
+          hitCount: true,
+          enableTracking: true,
         },
       });
 
@@ -28,9 +28,19 @@ module.exports = {
       // 3. Insert hit inside table
       // only if link was created by authenticated user
       // else ignore
-      if (data.userId) {
+      if (data.enableTracking) {
         handleHitInsert(ctx, data.id);
       }
+
+      // Increses the hit count
+      await prisma.pckd.update({
+        where: {
+          id: data.id,
+        },
+        data: {
+          hitCount: data.hitCount + 1,
+        },
+      });
 
       return data.target;
     },
@@ -43,10 +53,16 @@ const handleHitInsert = async (ctx, id) => {
   try {
     const testMode = process.env.NODE_ENV === "development" ? true : false;
 
+    // Remote address
+    const remoteAddr = ctx.request.connection.remoteAddress;
+
     // 3.1 Get ip of request, and check if it exists
     const ipRaw = testMode
       ? "122.177.222.233"
-      : ctx.request.connection.remoteAddress;
+      : remoteAddr?.contains("127.0.0.1") || remoteAddr?.contains("::")
+      ? ctx.request.headers["x-forwarded-for"] ||
+        ctx.request.headers["x-real-ip"]
+      : remoteAddr;
     // seperate ipv4 and ipv6
     // check if rawIp contains ':' characters
     const ip = ipRaw.includes(":") ? ipRaw.split(":")[3] : ipRaw;
@@ -55,19 +71,17 @@ const handleHitInsert = async (ctx, id) => {
     const userAgent = ctx.request.headers["user-agent"];
 
     const parsedUserAgent = parser(userAgent);
+    // Extract browser-name frmo user-agent
     const {
       browser: { name: browserName, version: browserVersion },
       os: { name: OSName, version: OSVersion },
     } = parsedUserAgent;
 
-    // Extract browser-name frmo user-agent
-
     // If isp exists, get details from api
-
+    let ipInfo;
     // 3.1.1 Get isp info
     try {
       // const ispInfo = await isp(ip);
-      let ipInfo;
       if (ip) {
         const rawIspInfo = await isp(ip);
 

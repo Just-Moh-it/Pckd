@@ -8,7 +8,7 @@ module.exports = {
       const { prisma } = ctx;
 
       // Get args
-      const { title, target } = args;
+      const { title, target, enableTracking } = args;
 
       // Get user Id
       const userId = ctx.getUserId(ctx, (throwErrors = false));
@@ -35,6 +35,7 @@ module.exports = {
         target,
         userId,
         title: userId ? title : null,
+        enableTracking: userId ? enableTracking : false,
       };
 
       // 3. Create Pckd

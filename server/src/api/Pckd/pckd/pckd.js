@@ -18,19 +18,5 @@ module.exports = {
         },
       });
     },
-    hitCount: async ({ id }, args, { prisma }) => {
-      // Count total hits where hit id is give
-      const hitCount = await prisma.hits.aggregate({
-        where: {
-          pckdId: id,
-        },
-        _count: {
-          pckdId: true,
-        },
-      });
-
-      // Return hit count
-      return hitCount._count.pckdId;
-    },
   },
 };
