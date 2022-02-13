@@ -37,6 +37,7 @@ export const SET_SELECTED_PCKD_QUERY = gql`
       pckd
       title
       createdAt
+      enableTracking
     }
   }
 `;

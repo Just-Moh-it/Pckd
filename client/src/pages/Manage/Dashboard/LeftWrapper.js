@@ -16,7 +16,6 @@ import { ReactComponent as Link } from "../../../assets/icons/link.svg";
 import { ReactComponent as Calendar } from "../../../assets/icons/calendar.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserPckds, selectPckd } from "../../../features/dashboardSlice";
-import { useForm } from "react-hook-form";
 
 const LeftWrapperStyles = styled.div`
   height: 100%;
@@ -76,7 +75,6 @@ const LeftWrapper = () => {
   );
   const [userPckds, setUserPckds] = useState([]);
   const [filterInput, setFilterInput] = useState("");
-  const { register, getValues } = useForm();
 
   useEffect(() => {
     dispatch(getUserPckds({ refetch: true }));

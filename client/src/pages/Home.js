@@ -22,7 +22,6 @@ const FooterWrapper = styled.footer`
 `;
 
 const Home = () => {
-
   return (
     <Wrapper>
       <NewNav />
@@ -30,7 +29,7 @@ const Home = () => {
         <CreatePckd />
       </ContentWrapper>
       <FooterWrapper>
-        &copy; {new Date().getFullYear()}
+        &copy; {new Date().getFullYear()} - Made with ❤️ & ☕
       </FooterWrapper>
     </Wrapper>
   );

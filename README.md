@@ -59,6 +59,7 @@ Pckd is an full-customizable, open source, free-to-use, usable-design-focued, tr
 - Fast, Reliable and Secure 🔐
 - Secret Storage 👮 and handling using 💻 environment variables
 - Built on Modern and Well-used Technologies like React, Graphql & NodeJS
+- Use your own DBMS 🥳. Pckd is compatible with MySQL, PostgreSQL, MongoDB and [many more](https://www.prisma.io/docs/reference/database-reference/supported-databases)
 
 This project was created to be the most powerful URL shortenter for the public, so no wonder it's so feature-rich
 
@@ -125,8 +126,8 @@ The following technologies were involved in the making of this project.
 - [Apollo Graphql Server v3](https://www.apollographql.com/docs/apollo-server/) 🕸️ - For querying the backend from the frontend efficiently
 - [Graphql Template By Mohit](https://github.com/Just-Moh-it/grapqhl-backend) 🧩 - Boilerplate Template used for initializing the backend
 - [Prisma](https://www.prisma.io/) 💿 - The ORM used for the app
-- [PostgreSQL](https://www.postgresql.org/) 🐘 - For handling data storage
-- [Redux](https://redux.js.org/) w/ [Redux Toolkit](https://redux-toolkit.js.org/) - For handling states accross the application
+- Any 😨 relational or non-relational [database that prisma supports](https://www.prisma.io/docs/reference/database-reference/supported-databases)
+- [Redux](https://redux.js.org/) 🗺️ w/ [Redux Toolkit](https://redux-toolkit.js.org/) - For handling states accross the application
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -143,7 +144,7 @@ _**NOTE**_: Here are the [**DETAILED INSTRUCTIONS**](/docs/getting-started.md)
 You will need these to be already installed:
 
 - [NodeJS](https://nodejs.org/) 14+ and [NPM](https://npmjs.com/)
-- [Postgresql](https://www.postgresql.org/download/)
+- [A supported database system](https://www.prisma.io/docs/reference/database-reference/supported-databases)
 
 And that's it
 
@@ -156,10 +157,11 @@ Follow these steps to get started with your own instance of Pckd
 1. Clone the repo and `cd` to the folder base of this repo
 1. Run command `npm run init` to install all the dependencies, and initialize environment files in both folders
 1. Obtain a free api key from [IP Registry](https://ipregistry.co/) (for IP address tracking info lookups)
-1. Create a postgresql database named pckd and note down the connection Username and Password
+1. Create a database named pckd in your chosen DBMS and note down the connection Username and Password
 1. Manually go to both the `client` and `server` folder and fill in the values in the `.env` file
+1. Open the [`server/prisma/schema.prisma`](server/prisma/schema.prisma) file and replace `postgresql` with your chosen db name.
 1. Return to the base direcotry and run `npm run dev` to test the app
-1. To promot to production, run `npm start`
+1. To promote to production, run `npm run build-client` and then `npm start`
 
 If you have any problems following the steps, [here are the detailed instructions](/docs/getting-started.md)
 
@@ -172,6 +174,11 @@ This project is far from perfect, and we'll reach there one day, or at least get
 - [x] Add forgetten password-reset capabilites ([issue #3](/issues/3))
 - [ ] Adding extra features such as enabling or disabling tracking on certain links ([Issue #2](/issues/2))
 - [ ] Quick redirects using expressjs directly from the backend, wihtout loading react and redux (planned ~150ms)
+- [ ] Adding docker-compose supported quick installation
+
+Known Issues: 
+
+- [ ] Hit not registered if IP not provided
 
 See the [open issues](https://github.com/Just-Moh-it/Pckd/issues) for a full list of proposed features (and known issues).
 

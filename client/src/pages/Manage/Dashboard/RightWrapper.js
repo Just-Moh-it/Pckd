@@ -198,7 +198,7 @@ const RightWrapper = () => {
       </div>
 
       {/* Main Content */}
-      {activePckd?.hitCount > 0 ? (
+      {activePckd?.hitCount > 0 && activePckd?.hits?.length > 0 ? (
         <div className="flex-height">
           {activeHit && (
             <div className="detail location">
@@ -333,8 +333,24 @@ const RightWrapper = () => {
       ) : (
         <Div404Wrapper>
           <img src={NoHit404Img} alt="No visitors" />
-          <h3>No Visitors Yet {":("}</h3>
-          <p>Select the sharable link and get more visitors. Their info would be shown here!</p>
+          {activePckd?.enableTracking ? (
+            <>
+              <h3>No Visitors Yet {":("}</h3>
+              <p>
+                Select the sharable link and get more visitors. Their info would
+                be shown here!
+              </p>
+              {console.log(activePckd?.enableTracking)}
+            </>
+          ) : (
+            <>
+              <h3>Tracking disabled</h3>
+              <p>
+                Tracking was disabled while creating this pckd, so no clicks
+                will be tracked
+              </p>
+            </>
+          )}
         </Div404Wrapper>
       )}
     </RightWrapperStyles>

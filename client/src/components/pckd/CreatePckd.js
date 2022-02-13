@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 
 import FormGroup from "../../styles/FormGroup";
 import TextBox from "../../styles/TextBox";
+import CheckBox from "../../styles/CheckBox";
 
 import HeroImage from "../../assets/images/hero-image.png";
 import { ReactComponent as ShortenIcon } from "../../assets/icons/shorten.svg";
@@ -176,8 +177,8 @@ const CreatePckd = () => {
   const [createPckd, { loading, error, data }] =
     useMutation(CREATE_PCKD_MUTATION);
 
-  const onSubmit = ({ target, title, pckd }) => {
-    createPckd({ variables: { target, title, pckd } });
+  const onSubmit = ({ target, title, pckd, enableTracking }) => {
+    createPckd({ variables: { target, title, pckd, enableTracking } });
   };
 
   useEffect(() => {
@@ -246,10 +247,22 @@ const CreatePckd = () => {
               <TextBox {...register("pckd")} placeholder="myshortlink" />
             </FormGroup>
             {isLoggedIn ? (
-              <FormGroup>
-                <label htmlFor="title">Title</label>
-                <TextBox {...register("title")} placeholder="Custom Title" />
-              </FormGroup>
+              <>
+                <FormGroup>
+                  <label htmlFor="title">Title</label>
+                  <TextBox {...register("title")} placeholder="Custom Title" />
+                </FormGroup>
+                <FormGroup>
+                  <CheckBox
+                    type="checkbox"
+                    {...register("enableTracking")}
+                    defaultChecked={true}
+                    placeholder="Custom Title"
+                    id="enableTracking"
+                  />
+                  <label htmlFor="enableTracking">Enable Tracking</label>
+                </FormGroup>
+              </>
             ) : (
               <p className="tip">(Tip: Login to view more options)</p>
             )}
