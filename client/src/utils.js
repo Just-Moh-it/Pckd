@@ -6,11 +6,14 @@ export const getCompanyLogoLinkFromURI = (uri) => {
 };
 
 export const getBackendURL = () => {
-  const env = process.env.NODE_ENV
+  const uri =
+    process.env.NODE_ENV === "development"
+      ? process.env.REACT_APP_DEV_BACKEND_ENDPOINT
+      : process.env.REACT_APP_PROD_BACKEND_ENDPOINT &&
+        `${window.location.protocol}://${window.location.host}:${window.location.port}`;
 
-  return env === "development"
-    ? process.env.REACT_APP_DEV_BACKEND_ENDPOINT
-    : process.env.REACT_APP_PROD_BACKEND_ENDPOINT && `${window.location.protocol}://${window.location.host}:${window.location.port}`;
+  // return URI, and relplace /undefined/ with /
+  return uri.replace(/undefined/g, "/");
 };
 
 export const getHumanDateFromEpoch = (epoch) => {
