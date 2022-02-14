@@ -150,7 +150,7 @@ const Div404Wrapper = styled.div`
 const RightWrapper = () => {
   const { activePckd, allPckds } = useSelector((state) => ({
     activePckd: state?.dashboard?.activePckd,
-    allPckds: state?.dashboard?.rawUserPckds,
+    allPckds: state?.dashboard?.userPckds,
   }));
   const activeHit = useSelector((state) => state?.dashboard?.activeHit);
   const [filterInput, setFilterInput] = useState("");
@@ -200,162 +200,161 @@ const RightWrapper = () => {
         </div>
       </div>
 
-      {/* Main Content */}
-      {allPckds?.length > 0 && (activePckd?.hitCount > 0 && activePckd?.hits?.length > 0 ? (
-        <div className="flex-height">
-          {activeHit && (
-            <div className="detail location">
-              <div className="item">
-                <Pin className="icon" />
-                <span className="subheading">Address</span>
-                <p>
-                  {activeHit?.location?.city},{" "}
-                  {activeHit?.location?.country?.code} -{" "}
-                  {activeHit?.location?.postal}
-                </p>
-              </div>
-              <div className="content shadowed">
-                {activeHit?.ip && (
-                  <div className="item map">
-                    <span className="subheading"></span>
-                    <iframe
-                      title="Map"
-                      src={`https://maps.google.com/maps?q=${activeHit?.location?.city}, ${activeHit?.location?.country?.name}&output=embed`}
-                    />
-                  </div>
-                )}
-              </div>
-              <div className="content">
-                {activeHit?.ip && (
-                  <>
-                    <div className="item">
-                      <Antenna className="icon" />
-                      <span className="subheading">IP</span>
-                      <p>{activeHit?.ip}</p>
-                    </div>
-                    <div className="item">
-                      <Server className="icon" />
-                      <span className="subheading">{activeHit?.type}</span>
-                      <p>{activeHit?.isp}</p>
-                    </div>
-                  </>
-                )}
-                {activeHit?.browser?.name && (
-                  <div className="item">
-                    <Browser className="icon" />
-                    <span className="subheading">Browser</span>
-                    <p>
-                      {activeHit?.browser?.name +
-                        (" | " + activeHit?.browser?.version || "")}
-                    </p>
-                  </div>
-                )}
-                {activeHit?.os.name && (
-                  <div className="item">
-                    <Device className="icon" />
-                    <span className="subheading">Device</span>
-                    <p>
-                      {activeHit?.os?.name +
-                        (" | " + activeHit?.os?.version || "")}
-                    </p>
-                  </div>
-                )}
+      {allPckds?.length > 0 &&
+        (activePckd?.hitCount > 0 && activePckd?.hits?.length > 0 ? (
+          <div className="flex-height">
+            {activeHit && (
+              <div className="detail location">
                 <div className="item">
-                  <Clock className="icon" />
-                  <span className="subheading">Visitor's Time</span>
+                  <Pin className="icon" />
+                  <span className="subheading">Address</span>
                   <p>
-                    {getHumanDateFromEpoch(
-                      parseInt(activeHit?.createdAt) +
-                        parseInt(activeHit?.timezone?.offset)
-                    )}{" "}
-                    | {getHumanTimeFromEpoch(activePckd?.createdAt)}
+                    {activeHit?.location?.city},{" "}
+                    {activeHit?.location?.country?.code} -{" "}
+                    {activeHit?.location?.postal}
                   </p>
+                </div>
+                <div className="content shadowed">
+                  {activeHit?.ip && (
+                    <div className="item map">
+                      <span className="subheading"></span>
+                      <iframe
+                        title="Map"
+                        src={`https://maps.google.com/maps?q=${activeHit?.location?.city}, ${activeHit?.location?.country?.name}&output=embed`}
+                      />
+                    </div>
+                  )}
+                </div>
+                <div className="content">
+                  {activeHit?.ip && (
+                    <>
+                      <div className="item">
+                        <Antenna className="icon" />
+                        <span className="subheading">IP</span>
+                        <p>{activeHit?.ip}</p>
+                      </div>
+                      <div className="item">
+                        <Server className="icon" />
+                        <span className="subheading">{activeHit?.type}</span>
+                        <p>{activeHit?.isp}</p>
+                      </div>
+                    </>
+                  )}
+                  {activeHit?.browser?.name && (
+                    <div className="item">
+                      <Browser className="icon" />
+                      <span className="subheading">Browser</span>
+                      <p>
+                        {activeHit?.browser?.name +
+                          (" | " + activeHit?.browser?.version || "")}
+                      </p>
+                    </div>
+                  )}
+                  {activeHit?.os.name && (
+                    <div className="item">
+                      <Device className="icon" />
+                      <span className="subheading">Device</span>
+                      <p>
+                        {activeHit?.os?.name +
+                          (" | " + activeHit?.os?.version || "")}
+                      </p>
+                    </div>
+                  )}
+                  <div className="item">
+                    <Clock className="icon" />
+                    <span className="subheading">Visitor's Time</span>
+                    <p>
+                      {getHumanDateFromEpoch(
+                        parseInt(activeHit?.createdAt) +
+                          parseInt(activeHit?.timezone?.offset)
+                      )}{" "}
+                      | {getHumanTimeFromEpoch(activePckd?.createdAt)}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+            <div className="detail list">
+              <h3 className="detail-title">All Clicks</h3>
+              <div className="content">
+                <div className="item">
+                  {hits?.length !== 0 &&
+                    hits
+                      ?.filter(
+                        (item) =>
+                          item &&
+                          Object.values(flattenObject(item))?.some((value) => {
+                            return (
+                              value &&
+                              typeof value === "string" &&
+                              value
+                                ?.toLowerCase()
+                                ?.includes(filterInput?.toLowerCase())
+                            );
+                          })
+                      )
+                      ?.map((hit) => (
+                        <ListItem
+                          key={hit?.id}
+                          isActive={hit?.id === activeHit?.id}
+                          leftIcon={{
+                            src: `${getBackendURL()}/static/flags/${hit?.location?.country?.code?.toLowerCase()}.svg`,
+                            hover: hit?.location?.country?.name,
+                            rounded: true,
+                          }}
+                          rightItem={{
+                            subtitleItems: [
+                              {
+                                icon: {
+                                  src: <Calendar />,
+                                  hover: "Date",
+                                },
+                                text: hit?.createdAt
+                                  ? getHumanDateFromEpoch(hit?.createdAt)
+                                  : "N/A",
+                              },
+                            ],
+                            id: hit?.id,
+                            title: `${hit?.location?.city}, ${hit?.location?.country?.code}`,
+                            bylineItems: [
+                              {
+                                icon: {
+                                  src: <Globe />,
+                                  hover: "IP Address",
+                                },
+                                text: hit?.ip,
+                              },
+                            ],
+                          }}
+                          onClick={() => handleSelectHit(hit?.id)}
+                        />
+                      ))}
                 </div>
               </div>
             </div>
-          )}
-          <div className="detail list">
-            <h3 className="detail-title">All Clicks</h3>
-            <div className="content">
-              <div className="item">
-                {hits?.length !== 0 &&
-                  hits
-                    ?.filter(
-                      (item) =>
-                        item &&
-                        Object.values(flattenObject(item))?.some((value) => {
-                          return (
-                            value &&
-                            typeof value === "string" &&
-                            value
-                              ?.toLowerCase()
-                              ?.includes(filterInput?.toLowerCase())
-                          );
-                        })
-                    )
-                    ?.map((hit) => (
-                      <ListItem
-                        key={hit?.id}
-                        isActive={hit?.id === activeHit?.id}
-                        leftIcon={{
-                          src: `${getBackendURL()}/static/flags/${hit?.location?.country?.code?.toLowerCase()}.svg`,
-                          hover: hit?.location?.country?.name,
-                          rounded: true,
-                        }}
-                        rightItem={{
-                          subtitleItems: [
-                            {
-                              icon: {
-                                src: <Calendar />,
-                                hover: "Date",
-                              },
-                              text: hit?.createdAt
-                                ? getHumanDateFromEpoch(hit?.createdAt)
-                                : "N/A",
-                            },
-                          ],
-                          id: hit?.id,
-                          title: `${hit?.location?.city}, ${hit?.location?.country?.code}`,
-                          bylineItems: [
-                            {
-                              icon: {
-                                src: <Globe />,
-                                hover: "IP Address",
-                              },
-                              text: hit?.ip,
-                            },
-                          ],
-                        }}
-                        onClick={() => handleSelectHit(hit?.id)}
-                      />
-                    ))}
-              </div>
-            </div>
           </div>
-        </div>
-      ) : (
-        <Div404Wrapper>
-          <img src={NoHit404Img} alt="No visitors" />
-          {activePckd?.enableTracking ? (
-            <>
-              <h3>No Visitors Yet {":("}</h3>
-              <p>
-                Select the sharable link and get more visitors. Their info would
-                be shown here!
-              </p>
-              {console.log(activePckd?.enableTracking)}
-            </>
-          ) : (
-            <>
-              <h3>Tracking disabled</h3>
-              <p>
-                Tracking was disabled while creating this pckd, so no clicks
-                will be tracked
-              </p>
-            </>
-          )}
-        </Div404Wrapper>
-      ))}
+        ) : (
+          <Div404Wrapper>
+            <img src={NoHit404Img} alt="No visitors" />
+            {activePckd?.enableTracking ? (
+              <>
+                <h3>No Visitors Yet {":("}</h3>
+                <p>
+                  Select the sharable link and get more visitors. Their info
+                  would be shown here!
+                </p>
+              </>
+            ) : (
+              <>
+                <h3>Tracking disabled</h3>
+                <p>
+                  Tracking was disabled while creating this pckd, so no clicks
+                  will be tracked
+                </p>
+              </>
+            )}
+          </Div404Wrapper>
+        ))}
     </RightWrapperStyles>
   );
 };
