@@ -51,7 +51,7 @@ const handleHitInsert = async (ctx, id) => {
   const { prisma } = ctx;
 
   try {
-    const testMode = process.env.NODE_ENV === "development" ? true : false;
+    const testMode = false;
 
     // Remote address
     const remoteAddr = ctx.request.connection.remoteAddress;
@@ -59,12 +59,12 @@ const handleHitInsert = async (ctx, id) => {
     // 3.1 Get ip of request, and check if it exists
     const ipRaw = testMode
       ? "122.177.222.233"
-      : remoteAddr?.oincludes("127.0.0.1") || remoteAddr?.oincludes("::")
+      : remoteAddr?.includes("127.0.0.1") || remoteAddr?.includes("::")
       ? ctx.request.headers["x-forwarded-for"] ||
         ctx.request.headers["x-real-ip"]
       : remoteAddr;
     // seperate ipv4 and ipv6
-    // check if rawIp oincludes ':' characters
+    // check if rawIp includes ':' characters
     const ip = ipRaw.includes(":") ? ipRaw.split(":")[3] : ipRaw;
 
     // Get the browser from headers
