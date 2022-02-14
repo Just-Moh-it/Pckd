@@ -11,7 +11,7 @@ export const getBackendURL = () => {
       ? process.env.REACT_APP_DEV_BACKEND_ENDPOINT
       : process.env.REACT_APP_PROD_BACKEND_ENDPOINT
       ? process.env.REACT_APP_PROD_BACKEND_ENDPOINT
-      : `${window.location.protocol}://${window.location.host}:${window.location.port}`;
+      : ``;
 
   // return URI, and relplace /undefined/ with /
   return uri.replace(/undefined/g, "/");
