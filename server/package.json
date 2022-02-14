@@ -8,7 +8,7 @@
     "dev": "nodemon src/.",
     "start": "npm run dev",
     "prod": "node src/.",
-    "db-init": "npx -y prisma migrate dev --init"
+    "db-init": "npx -y prisma db push"
   },
   "keywords": [],
   "author": "Mohit Yadav",
