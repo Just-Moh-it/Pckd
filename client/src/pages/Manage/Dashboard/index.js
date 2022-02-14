@@ -96,7 +96,7 @@ const DashboardWrapper = styled.div`
   }
 
   & .detail .header span,
-  & .detail .title {
+  & .detail .title:not(.detail .title) {
     font-weight: 500;
     font-size: 1em;
     line-height: 18px;

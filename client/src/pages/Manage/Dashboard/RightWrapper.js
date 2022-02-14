@@ -141,9 +141,14 @@ const Div404Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
 
   & h3 {
     margin-top: 50px;
+  }
+
+  & img {
+    max-width: 100%;
   }
 `;
 
