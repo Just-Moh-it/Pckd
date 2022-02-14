@@ -10,7 +10,6 @@
     "dev-server": "cd server && npm run dev",
     "dev-client": "cd client && npm start",
     "build-client": "cd client && npm run build",
-    "db-init": "npx -y prisma migrate dev --init",
 
     "server": "cd server && nodemon server.js",
     "client": "cd client && npm run start",

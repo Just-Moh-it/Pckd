@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/.",
     "start": "npm run dev",
-    "prod": "node src/."
+    "prod": "node src/.",
+    "db-init": "npx -y prisma migrate dev --init"
   },
   "keywords": [],
   "author": "Mohit Yadav",

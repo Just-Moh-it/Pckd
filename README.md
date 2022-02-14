@@ -243,7 +243,7 @@ You can reach out to Mohit Yadav, the main creator of the app (for now) at mail 
 
 # 😋 License
 
-Distributed under the MIT License. See [`LICENSE.txt`](LICENSE.txt) for more information.
+Distributed under the MIT License. See [`LICENSE.md`](LICENSE.md) for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -277,4 +277,4 @@ Just one last thing, if you have reached this far, why not consider giving a sta
 [issues-shield]: https://img.shields.io/github/issues/Just-Moh-it/Pckd.svg?style=flat-square&logo=testing-library
 [issues-url]: https://github.com/Just-Moh-it/Pckd/issues
 [license-shield]: https://img.shields.io/github/license/Just-Moh-it/Pckd.svg?style=flat-square&logo=gmail
-[license-url]: https://github.com/Just-Moh-it/Pckd/blob/master/LICENSE.txt
+[license-url]: https://github.com/Just-Moh-it/Pckd/blob/master/LICENSE.md
