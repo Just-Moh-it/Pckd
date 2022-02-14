@@ -10,7 +10,7 @@ export const getBackendURL = () => {
 
   return env === "development"
     ? process.env.REACT_APP_DEV_BACKEND_ENDPOINT
-    : process.env.REACT_APP_PROD_BACKEND_ENDPOINT && window.location.hostname;
+    : process.env.REACT_APP_PROD_BACKEND_ENDPOINT && `${window.location.protocol}://${window.location.host}:${window.location.port}`;
 };
 
 export const getHumanDateFromEpoch = (epoch) => {
