@@ -5,10 +5,13 @@ export const getCompanyLogoLinkFromURI = (uri) => {
     }`;
 };
 
-export const getBackendURL = () =>
-  process.env.NODE_ENV === "development"
+export const getBackendURL = () => {
+  const env = process.env.NODE_ENV
+
+  return env === "development"
     ? process.env.REACT_APP_DEV_BACKEND_ENDPOINT
     : process.env.REACT_APP_PROD_BACKEND_ENDPOINT && window.location.hostname;
+};
 
 export const getHumanDateFromEpoch = (epoch) => {
   return (

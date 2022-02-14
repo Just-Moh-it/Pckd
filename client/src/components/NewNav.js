@@ -123,10 +123,10 @@ const NewNav = ({ overDark = true, transperant = false }) => {
       </Link>
       <div className="right-container">
         <nav>
-          <NavLink activeClass="active" to="/">
+          <NavLink activeClassName="active" to="/">
             Create Pckd
           </NavLink>
-          <NavLink activeClass="active" to="/manage">
+          <NavLink activeClassName="active" to="/manage">
             Dashboard
           </NavLink>
           {/* Create user avatar form name */}
