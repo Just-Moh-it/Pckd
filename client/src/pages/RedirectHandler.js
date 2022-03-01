@@ -22,6 +22,10 @@ const Main = styled.div`
     height: 80px;
     margin-bottom: 40px;
   }
+
+  .desc {
+    margin-top: 100px;
+  }
 `;
 
 // Handles Redirection
@@ -74,7 +78,7 @@ const RedirectHandler = () => {
       <Main>
         <Logo className="logo" />
         <h1>Redirecting to the correct page!...</h1>
-        <p>
+        <p className="desc">
           Powered by <a href="https://">Pckd</a>
         </p>
       </Main>
