@@ -75,10 +75,7 @@ const RedirectHandler = () => {
         <Logo className="logo" />
         <h1>Redirecting to the correct page!...</h1>
         <p>
-          The creator of the short link will be able to view information about
-          you including your <strong>ip location, browser, device</strong>, etc.
-          {/* Close this window <kbd>Ctrl + W</kbd> before <code>{timer}</code>{" "}
-          seconds if you do not consent to give the info. */}
+          Powered by <a href="https://">Pckd</a>
         </p>
       </Main>
     </Wrapper>
