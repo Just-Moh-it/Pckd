@@ -51,6 +51,7 @@ export default createGlobalStyle`
 
   a {
     color: ${(props) => props.theme.accentColor};
+    text-decoration: none;
   }
 
   ${"" /* Modal Styles */}
