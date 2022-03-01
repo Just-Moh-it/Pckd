@@ -91,6 +91,7 @@ const Hero = styled.div`
 
   & .tip {
     text-align: center;
+    margin-bottom: 10px;
   }
 `;
 
