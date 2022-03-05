@@ -1,9 +1,14 @@
 export const getCompanyLogoLinkFromURI = (uri) => {
-  if (uri)
-    return `https://logo.clearbit.com/${
-      uri.replace(/(^\w+:|^)\/\//, "").split("/")[0]
-    }`;
+  if (!uri) return;
+  const domain = getDomainFromURI(uri);
+  const imgURI = `https://logo.clearbit.com/${domain}`;
+  var img = new Image();
+  img.src = imgURI;
+  return img.height !== 0 ? imgURI : `https://${domain}/favicon.ico`;
 };
+
+export const getDomainFromURI = (uri) =>
+  uri.replace(/(^\w+:|^)\/\//, "").split("/")[0];
 
 export const getBackendURL = () => {
   const uri =
