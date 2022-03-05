@@ -54,13 +54,10 @@ const Signup = () => {
           <FormGroup>
             <label htmlFor="email">Email</label>
             <TextBox
-              type="text"
+              type="email"
               id="email"
               placeholder="abc@xyz.com"
-              {...register("email", {
-                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                required: "Please enter a valid email address",
-              })}
+              {...register("email")}
             />
             {errors.email && (
               <span className="input-error">{errors?.email?.message}</span>

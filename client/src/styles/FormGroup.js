@@ -28,6 +28,13 @@ const FormGroup = styled.div`
     clear: both;
   }
 
+  & .input-error {
+    color: red;
+    font-size: 15px;
+    margin-top: 5px;
+    display: inline-block;
+  }
+
   & button {
     padding: 17px 10px;
     width: 100%;

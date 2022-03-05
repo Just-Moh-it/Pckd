@@ -24,7 +24,7 @@ const Main = styled.div`
   }
 
   .desc {
-    margin-top: 100px;
+    margin-top: 40px;
   }
 `;
 

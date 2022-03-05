@@ -53,7 +53,7 @@ const Login = () => {
           <FormGroup>
             <label htmlFor="email">Email</label>
             <TextBox
-              type="text"
+              type="email"
               id="email"
               placeholder="Email"
               {...register("email", { required: true })}

@@ -68,13 +68,6 @@ const RightContainer = styled.div`
   & .logo img {
     width: 85px;
   }
-
-  & form .input-error {
-    color: red;
-    font-size: 15px;
-    margin-top: 5px;
-    display: inline-block;
-  }
 `;
 
 const Custom = styled(LoadingBar)`

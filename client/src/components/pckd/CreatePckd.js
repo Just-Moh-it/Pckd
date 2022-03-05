@@ -245,7 +245,26 @@ const CreatePckd = () => {
           <AdvancedOptionsWrapper hidden={!isAdvancedOpen}>
             <FormGroup>
               <label htmlFor="pckd">Custom Backhalf / Pckd</label>
-              <TextBox {...register("pckd")} placeholder="myshortlink" />
+              <TextBox
+                {...register("pckd", {
+                  minLength: 3,
+                  maxLength: 100,
+                  required: false,
+                  pattern: /^[a-zA-Z0-9-_]+$/,
+                })}
+                placeholder="myshortlink"
+              />
+              {errors?.pckd && (
+                <span className="input-error">
+                  {
+                    {
+                      pattern: "Only alphanumeric values are allowed",
+                      maxLength: "Max length allowed is 100 chars",
+                      minLength: "Min length allowed is 3 characters",
+                    }[errors?.pckd?.type]
+                  }
+                </span>
+              )}
             </FormGroup>
             {isLoggedIn ? (
               <>
