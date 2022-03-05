@@ -2,9 +2,18 @@ export const getCompanyLogoLinkFromURI = (uri) => {
   if (!uri) return;
   const domain = getDomainFromURI(uri);
   const imgURI = `https://logo.clearbit.com/${domain}`;
-  var img = new Image();
-  img.src = imgURI;
-  return img.height !== 0 ? imgURI : `https://${domain}/favicon.ico`;
+  return imageExists(imgURI) ? imgURI : `https://${domain}/favicon.ico`;
+};
+
+export const imageExists = (URI) => {
+  var http = new XMLHttpRequest();
+  http.open("HEAD", URI, false);
+  try {
+    http.send();
+  } catch (_) {
+    return false;
+  }
+  return http.status !== 404;
 };
 
 export const getDomainFromURI = (uri) =>
