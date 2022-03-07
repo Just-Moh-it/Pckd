@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 import NewNav from "../../../components/NewNav";
 
@@ -14,15 +15,19 @@ const Wrapper = styled.div`
   height: 100%;
   /* height: 100%; */
   overflow: hidden;
+  background-color: #f3f8fe;
 `;
 
 const DashboardWrapper = styled.div`
   padding: 26px 42px 0;
   height: 100%;
-  display: flex;
+  display: grid;
+  /* align-items: center; */
+  /* place-items: center; */
+  max-width: 1500px;
+  margin: auto;
   grid-template-columns: 330fr 614fr 161fr;
   grid-template-areas: "left main right";
-  background-color: #f3f8fe;
   flex-grow: 1;
 
   /* Change font-family of all child elements */
@@ -39,6 +44,7 @@ const DashboardWrapper = styled.div`
   & .main-wrapper .title-wrapper {
     display: flex;
     justify-content: space-between;
+    align-self: stretch;
   }
   & .main-wrapper .title-wrapper:first-child {
     flex-grow: 1;
@@ -83,12 +89,13 @@ const DashboardWrapper = styled.div`
   }
 
   & svg {
-    max-width: 24px;
-    min-width: 5px;
+    /* max-width: 24px; */
+    /* min-width: 5px; */
   }
 
   & .detail {
     margin: 6px 0;
+    max-height: 45vh;
   }
 
   & .detail-content {
@@ -138,13 +145,42 @@ const Dashboard = () => {
 
       <DashboardWrapper>
         {/* Left Wrapper */}
-        <LeftWrapper className="left-wrapper"></LeftWrapper>
+        <ParentAnimationWrapper relativeDelay={0}>
+          <LeftWrapper className="left-wrapper"></LeftWrapper>
+        </ParentAnimationWrapper>
         {/* Main Wrapper */}
-        <MainWrapper className="main-wrapper">Main</MainWrapper>
+        <ParentAnimationWrapper relativeDelay={0.5}>
+          <MainWrapper className="main-wrapper">Main</MainWrapper>
+        </ParentAnimationWrapper>
         {/* Right Wrapper */}
-        <RightWrapper className="right-wrapper">Right</RightWrapper>
+        <ParentAnimationWrapper relativeDelay={0.8}>
+          <RightWrapper className="right-wrapper">Right</RightWrapper>
+        </ParentAnimationWrapper>
       </DashboardWrapper>
     </Wrapper>
+  );
+};
+
+const ParentAnimationStyles = styled(motion.div)`
+  max-height: 95vh;
+`;
+const ParentAnimationWrapper = ({ relativeDelay, children, ...props }) => {
+  return (
+    <ParentAnimationStyles
+      initial="hidden"
+      animate="shown"
+      {...props}
+      variants={{
+        hidden: { y: "10%", opacity: 0 },
+        shown: {
+          y: 0,
+          opacity: 1,
+          transition: { delay: relativeDelay, duration: 0.3 },
+        },
+      }}
+    >
+      {children}
+    </ParentAnimationStyles>
   );
 };
 

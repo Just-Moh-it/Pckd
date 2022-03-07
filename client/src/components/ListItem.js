@@ -1,18 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import NotFound from "../assets/icons/not-found.svg";
 
-const ListItemStyles = styled.div`
+const ListItemStyles = styled(motion.div)`
   display: flex;
   cursor: pointer;
-  width: 100%;
+  width: calc(100% - 6px);
+  align-self: center;
   background: #ffffff;
   box-shadow: 0px 2px 13px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
   padding: 12px;
-  margin: 15px 0;
+  margin: 15px auto;
   transition: all 0.2s ease-in-out;
   border: 3px solid transparent;
 
@@ -25,7 +27,7 @@ const ListItemStyles = styled.div`
   }
 
   &.active {
-    border: 3px solid #7f5ee4 !important;
+    outline: 3px solid #7f5ee4 !important;
   }
 `;
 
@@ -145,12 +147,27 @@ const ListItem = ({
   rightItem,
   onClick,
   isActive,
+  ...props
 }) => {
   return (
     <ListItemStyles
       onClick={onClick}
       className={`shadowed ${isActive && " active"}`}
+      {...props}
     >
+      {/* {isActive && ( */}
+        <motion.div
+          layoutId="outline"
+          className="outline"
+          initial={false}
+          animate={{ borderColor: "#7f5ee4" }}
+          transition={{
+            type: "spring",
+            stiffness: 500,
+            damping: 30,
+          }}
+        />
+      {/* )} */}
       <LeftItem>
         {/* Icons */}
         {leftIcon ? (

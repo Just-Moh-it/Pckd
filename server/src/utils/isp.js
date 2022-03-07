@@ -39,4 +39,3 @@ const isp = async (ip) => {
 
 module.exports = isp;
 
-// console.log(isp('122.177.172.148'))

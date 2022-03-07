@@ -3,6 +3,7 @@ import styled from "styled-components";
 import NewNav from "../../../components/NewNav";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../../../features/authSlice";
+import Loading from "../../../components/Loading/Loading";
 
 import BgImg from "../../../assets/images/login-bg.png";
 import User from "../../../assets/icons/user.svg";
@@ -97,7 +98,7 @@ const Profile = () => {
     localStorage.removeItem("token");
 
     dispatch(logoutUser());
-    window.location.href = process.env.REACT_APP_BASENAME;
+    window.location.href = process.env.REACT_APP_BASENAME || "";
   };
 
   return (
@@ -108,7 +109,7 @@ const Profile = () => {
           {userInfo?.id ? (
             <>
               <div className="header">
-                <ProfileIcon to="/manage/profile" className="user-icon">
+                <ProfileIcon to="/dash/profile" className="user-icon">
                   {/* {userInfo?.name
                 ?.split(" ")
                 ?.slice(0, 2)
@@ -139,7 +140,9 @@ const Profile = () => {
               </InfoGroup>
             </>
           ) : (
-            <>Loading Details</>
+            <>
+              <Loading />
+            </>
           )}
         </ProfileContainer>
       </ContentWrapper>

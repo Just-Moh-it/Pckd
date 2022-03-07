@@ -5,6 +5,18 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "command": "export NODE_ENV=development && npm run dev-server",
+      "name": "Run npm Dev Server",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "command": "npm run dev-client",
+      "name": "Run npm Dev Client",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
       "command": "npm run dev",
       "name": "Run npm Dev",
       "request": "launch",

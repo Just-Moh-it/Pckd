@@ -17,15 +17,20 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <script>
+      if (window.location.pathname === "/") {
+        window.location.replace("/manage");
+      }
+    </script>
 
     <title>Pckd-Shorten Links</title>
   </head>
   <body>
-    <noscript
-      >Oops, this page requires Javascript to work. If you have it disabled,
+    <noscript>
+      Oops, this page requires Javascript to work. If you have it disabled,
       enable it from the browser setting, or try accessing the site from another
-      device</noscript
-    >
+      device
+    </noscript>
     <div id="root"></div>
   </body>
 </html>

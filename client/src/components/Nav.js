@@ -64,13 +64,10 @@ const Nav = () => {
         <Link as={NormalLink} activeClass="active" to="/">
           Create New Pckd
         </Link>
-        <Link as={NormalLink} activeClass="active" to="/manage">
+        <Link as={NormalLink} activeClass="active" to="/dash">
           Dashboard
         </Link>
-        <ButtonLink
-          onClick={() => navigate("/auth")}
-          to="/auth"
-        >
+        <ButtonLink onClick={() => navigate("/auth")} to="/auth">
           Login
         </ButtonLink>
       </NavLinks>

@@ -25,7 +25,7 @@ const Router = () => {
         <Route path="/" element={<Home />} />
 
         {/* ManageRouter */}
-        <Route path="manage/*">
+        <Route path="dash/*">
           {isLoggedIn ? (
             <>
               {/* Protected Routes */}
@@ -43,7 +43,7 @@ const Router = () => {
         <Route path="auth/*" element={<AuthWrapper />}>
           {isLoggedIn ? (
             <>
-              <Route path="*" element={<Navigate to="/manage" replace />} />
+              <Route path="*" element={<Navigate to="/dash" replace />} />
             </>
           ) : (
             <>

@@ -5,6 +5,7 @@ const express = require("express");
 const { getUserId } = require("./utils/auth");
 const path = require("path");
 const http = require("http");
+const handleAll = require("./routes/all");
 
 // Config Imports
 require("dotenv").config();
@@ -25,6 +26,7 @@ const prisma = new PrismaClient();
 
   const server = new ApolloServer({
     schema,
+    connectToDevTools: true,
     context: ({ req }) => ({
       request: req,
       prisma,
@@ -37,22 +39,27 @@ const prisma = new PrismaClient();
   await server.start();
   server.applyMiddleware({ app });
 
-  app.use("/static", express.static("static"));
+  const appRouter = express.Router();
+  app.use(express.static("../../client/build"));
 
-  // Serve react app
-  const rootRouter = express.Router();
-  /*
-   * all your other routes go here
-   */
-  const buildPath = path.normalize(
-    path.join(__dirname + "../../../client/build")
-  );
-  app.use(express.static(buildPath));
+  // Redirect from basepath to UI
+  appRouter.get("/", (req, res) => res.redirect("/manage"));
 
-  rootRouter.get("(/*)?", async (req, res, next) => {
+  // Handle all manage paths
+  appRouter.route(["/manage", "/manage/*"]).get((req, res) => {
+    // Send index.html
+    // res.render("test", { html: html });
+    const buildPath = path.normalize(__dirname + "/../../client/build");
     res.sendFile(path.join(buildPath, "index.html"));
   });
-  app.use(rootRouter);
+
+  // app.use(['/manage', '/manage/*'], express.static('../../client/build/'))
+  app.use("/manage", express.static(__dirname + "/../../client/build"));
+
+  // Get all routes
+  appRouter.get("*", (req, res) => handleAll(req, res, prisma));
+
+  app.use(appRouter);
 
   await new Promise((resolve) => httpServer.listen({ port: PORT }, resolve));
   console.log(

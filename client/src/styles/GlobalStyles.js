@@ -82,4 +82,31 @@ export default createGlobalStyle`
     bottom: 0;
     background-color: #00000010;
   }
+
+  .floating { 
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+ 
+  @keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }   
+}
+
+.vl {
+  border-left: 1.5px solid #ececec;
+  min-height: 50px;
+}
+
+.sep {
+  border-top: 1.5px solid #ececec;
+  min-width: 50px;
+
+}
+
 `;

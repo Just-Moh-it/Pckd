@@ -18,5 +18,21 @@ module.exports = {
         },
       });
     },
+    byCountryGraph: async (parent, _, { prisma }) => {
+      const res = await prisma.hits.groupBy({
+        by: ["locationCountryCode", "locationCountryName"],
+        _count: {
+          id: true,
+        },
+        where: {
+          pckdId: parent.id,
+        },
+      });
+
+      return res.map((i) => ({
+        country: { code: i.locationCountryCode, name: i.locationCountryName },
+        count: i._count.id,
+      }));
+    },
   },
 };

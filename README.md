@@ -1,13 +1,14 @@
 <div id="top"></div>
 
 <!-- PROJECT Intro -->
+
 <br />
 <div align="center">
   <a href="https://github.com/Just-Moh-it/Pckd/stargazers">
     <img src="https://user-images.githubusercontent.com/48997634/153762074-d0aaa066-1c4e-48a2-9c08-44bc438c7a0f.png" alt="Project Banner" height="100">
   </a>
 
-  <p align="center">
+<p align="center">
     More than just a URL Shortener 😎
     <br />
     <a href="https://github.com/Just-Moh-it/Pckd"><strong>Explore the docs »</strong></a>
@@ -25,18 +26,10 @@
 
 # 💁 About The Project
 
-<a href="https://mohityadav.codes/projects/Pckd">
-    <img src="https://user-images.githubusercontent.com/48997634/153762049-bd957906-e7ee-4df2-abcf-2c76a0ef7376.png" alt="Project Banner">
+<a  href="https://mohityadav.codes/projects/Pckd">
+    <img src="https://user-images.githubusercontent.com/48997634/157104510-21df472c-d0d9-4075-96f1-18aded5905a5.png" alt="Project Banner">
 </a>
-
-<!-- PROJECT SHIELDS -->
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Last Commit][last-commit-shield]][last-commit-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+&nbsp;
 
 Pckd is a full-customizable, open source, free-to-use, usable-design-focued, tracking-intensive URL Shortener with awesome features, and **supports**:
 
@@ -155,14 +148,14 @@ And that's it
 Follow these steps to get started with your own instance of Pckd
 
 1. Clone the repo and `cd` to the folder base of this repo
-1. Run command `npm run init` to install all the dependencies, and initialize environment files in both folders
-1. Obtain a free API key from [IP Registry](https://ipregistry.co/) (for IP address tracking info lookups)
-1. Create a database named pckd in your chosen DBMS and note down the connection Username and Password
-1. Manually go to both the `client` and `server` folder and fill in the values in the `.env` file
-1. Open the [`server/prisma/schema.prisma`](server/prisma/schema.prisma) file and replace `postgresql` with your chosen db name.
-1. Return to base directory, and run `npm run db-init` to sync database with schema.
-1. To test if everything's working, run `npm run dev` and test the app
-1. To promote to production, run `npm run build-client` and then `npm start`
+2. Run command `npm run init` to install all the dependencies, and initialize environment files in both folders
+3. Obtain a free API key from [IP Registry](https://ipregistry.co/) (for IP address tracking info lookups)
+4. Create a database named pckd in your chosen DBMS and note down the connection Username and Password
+5. Manually go to both the `client` and `server` folder and fill in the values in the `.env` file
+6. Open the [`server/prisma/schema.prisma`](server/prisma/schema.prisma) file and replace `postgresql` with your chosen db name.
+7. Return to base directory, and run `npm run db-init` to sync database with schema.
+8. To test if everything's working, run `npm run dev` and test the app
+9. To promote to production, run `npm run build-client` and then `npm start`
 
 If you have any problems following the steps, [here are the detailed instructions](docs/getting-started.md)
 
@@ -265,6 +258,7 @@ Just one last thing, if you have reached this far, why not consider giving a sta
 <p align="right">~ Mohit</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
+
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [contributors-shield]: https://img.shields.io/github/contributors/Just-Moh-it/Pckd.svg?style=flat-square&logo=github

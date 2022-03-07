@@ -36,7 +36,7 @@ const Signup = () => {
   useEffect(() => {
     if (signupStatus === "success") {
       dispatch(initializeUser());
-      navigate("/manage");
+      navigate("/dash");
     }
   }, [signupStatus, navigate, dispatch]);
 

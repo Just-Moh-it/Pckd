@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectHit } from "../../../features/dashboardSlice";
 import ListItem from "../../../components/ListItem";
 import {
-  getBackendURL,
   getHumanDateFromEpoch,
   getHumanTimeFromEpoch,
   flattenObject,
@@ -25,9 +24,11 @@ import NoHit404Img from "../../../assets/images/404-hit.png";
 
 const RightWrapperStyles = styled.div`
   height: 100%;
+  max-height: 95vh;
   padding: 14px 30px 0 0;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   max-width: 350px;
 
   & .flex-height {
@@ -83,6 +84,8 @@ const RightWrapperStyles = styled.div`
 
   & .detail {
     overflow: scroll;
+    max-height: 45%;
+    padding-bottom: 10px;
   }
 
   & .detail.location {
@@ -91,7 +94,7 @@ const RightWrapperStyles = styled.div`
   & .detail.list {
     /* height: 100px; */
     overflow-y: scroll;
-    padding-bottom: 200px;
+    /* padding-bottom: 200px; */
   }
 
   & .content.shadowed {
@@ -207,7 +210,7 @@ const RightWrapper = () => {
 
       {allPckds?.length > 0 &&
         (activePckd?.hitCount > 0 && activePckd?.hits?.length > 0 ? (
-          <div className="flex-height">
+          <>
             {activeHit && (
               <div className="detail location">
                 <div className="item">
@@ -267,13 +270,20 @@ const RightWrapper = () => {
                   )}
                   <div className="item">
                     <Clock className="icon" />
-                    <span className="subheading">Visitor's Time</span>
+                    <span className="subheading">
+                      Visit Time ({activeHit?.timezone.abbreviation} |{" "}
+                      {`${
+                        !activeHit?.timezone.offset
+                          .toString()
+                          .startsWith("-") && "+"
+                      } ${activeHit?.timezone.offset}`}
+                    </span>
                     <p>
                       {getHumanDateFromEpoch(
                         parseInt(activeHit?.createdAt) +
                           parseInt(activeHit?.timezone?.offset)
                       )}{" "}
-                      | {getHumanTimeFromEpoch(activePckd?.createdAt)}
+                      | {getHumanTimeFromEpoch(activeHit?.createdAt)}
                     </p>
                   </div>
                 </div>
@@ -298,46 +308,63 @@ const RightWrapper = () => {
                             );
                           })
                       )
-                      ?.map((hit) => (
-                        <ListItem
-                          key={hit?.id}
-                          isActive={hit?.id === activeHit?.id}
-                          leftIcon={{
-                            src: `${getBackendURL()}/static/flags/${hit?.location?.country?.code?.toLowerCase()}.svg`,
-                            hover: hit?.location?.country?.name,
-                            rounded: true,
-                          }}
-                          rightItem={{
-                            subtitleItems: [
-                              {
-                                icon: {
-                                  src: <Calendar />,
-                                  hover: "Date",
+                      ?.map((hit, index) => {
+                        const tick = 0.1;
+                        const relativeDelay = index < 20 ? index * tick : tick;
+
+                        const staggerVariants = {
+                          hidden: { scale: 0.75, y: "100%", opacity: 0 },
+                          shown: {
+                            scale: 1,
+                            y: 0,
+                            opacity: 1,
+                            transition: { delay: relativeDelay },
+                          },
+                        };
+                        return (
+                          <ListItem
+                            initial="hidden"
+                            whileinView="shown"
+                            variants={staggerVariants}
+                            key={hit?.id}
+                            isActive={hit?.id === activeHit?.id}
+                            leftIcon={{
+                              src: `/manage/flags/${hit?.location?.country?.code?.toLowerCase()}.svg`,
+                              hover: hit?.location?.country?.name,
+                              rounded: true,
+                            }}
+                            rightItem={{
+                              subtitleItems: [
+                                {
+                                  icon: {
+                                    src: <Calendar />,
+                                    hover: "Date",
+                                  },
+                                  text: hit?.createdAt
+                                    ? getHumanDateFromEpoch(hit?.createdAt)
+                                    : "N/A",
                                 },
-                                text: hit?.createdAt
-                                  ? getHumanDateFromEpoch(hit?.createdAt)
-                                  : "N/A",
-                              },
-                            ],
-                            id: hit?.id,
-                            title: `${hit?.location?.city}, ${hit?.location?.country?.code}`,
-                            bylineItems: [
-                              {
-                                icon: {
-                                  src: <Globe />,
-                                  hover: "IP Address",
+                              ],
+                              id: hit?.id,
+                              title: `${hit?.location?.city}, ${hit?.location?.country?.code}`,
+                              bylineItems: [
+                                {
+                                  icon: {
+                                    src: <Globe />,
+                                    hover: "IP Address",
+                                  },
+                                  text: hit?.ip,
                                 },
-                                text: hit?.ip,
-                              },
-                            ],
-                          }}
-                          onClick={() => handleSelectHit(hit?.id)}
-                        />
-                      ))}
+                              ],
+                            }}
+                            onClick={() => handleSelectHit(hit?.id)}
+                          />
+                        );
+                      })}
                 </div>
               </div>
             </div>
-          </div>
+          </>
         ) : (
           <Div404Wrapper>
             <img src={NoHit404Img} alt="No visitors" />

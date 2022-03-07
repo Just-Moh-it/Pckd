@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -114,6 +114,7 @@ const ButtonLink = styled(Link)`
 
 const NewNav = ({ overDark = true, transperant = false }) => {
   const isLoggedIn = useSelector((state) => state.auth.loggedIn);
+  // Add menu state for mobile
 
   return (
     <NavWrapper transperant={transperant} overDark>
@@ -126,12 +127,12 @@ const NewNav = ({ overDark = true, transperant = false }) => {
           <NavLink activeClassName="active" to="/">
             Create Pckd
           </NavLink>
-          <NavLink activeClassName="active" to="/manage">
+          <NavLink activeClassName="active" to="/dash">
             Dashboard
           </NavLink>
           {/* Create user avatar form name */}
           {isLoggedIn ? (
-            <Link to="/manage/profile" className="user-icon">
+            <Link to="/dash/profile" className="user-icon">
               <img src={User} alt="Account" />
             </Link>
           ) : (

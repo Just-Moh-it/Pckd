@@ -19,7 +19,8 @@ import { getUserPckds, selectPckd } from "../../../features/dashboardSlice";
 
 const LeftWrapperStyles = styled.div`
   height: 100%;
-  padding: 14px 30px 0 0;
+  padding: 14px 30px 20px 0;
+  max-width: 450px;
 
   & .main-btn {
     padding: 7px;
@@ -65,6 +66,10 @@ const LeftWrapperStyles = styled.div`
   & {
     overflow: auto;
     padding-bottom: 100px;
+  }
+
+  & .list {
+    align-items: center;
   }
 `;
 
@@ -191,16 +196,33 @@ const LeftWrapper = () => {
                     );
                   })
               )
-              ?.map((item) => (
-                <ListItem
-                  key={item?.id}
-                  onClick={() => select(item.rightItem.id)}
-                  leftIcon={item.leftIcon}
-                  rightItem={item.rightItem}
-                  isActive={activePckd?.id === item?.rightItem?.id}
-                  className="active"
-                />
-              ))}
+              ?.map((item, index) => {
+                const tick = 0.1;
+                const relativeDelay = index * tick;
+
+                const staggerVariants = {
+                  hidden: { scale: 0.75, y: "100%", opacity: 0 },
+                  shown: {
+                    scale: 1,
+                    y: 0,
+                    opacity: 1,
+                    transition: { delay: relativeDelay },
+                  },
+                };
+
+                return (
+                  <ListItem
+                    initial="hidden"
+                    animate="shown"
+                    variants={staggerVariants}
+                    key={item?.id}
+                    onClick={() => select(item.rightItem.id)}
+                    leftIcon={item.leftIcon}
+                    rightItem={item.rightItem}
+                    isActive={activePckd?.id === item?.rightItem?.id}
+                  />
+                );
+              })}
         </div>
       </div>
     </LeftWrapperStyles>

@@ -37,6 +37,14 @@ const App = () => {
     intialize();
   }, [dispatch]);
 
+  useEffect(() => {
+    // Check if on the base route, if yes, predirect to manage route
+    const path = window.location.pathname;
+    if (path === "/") {
+      window.location.href = "/manage";
+    }
+  }, []);
+
   return (
     <StyledThemeProvider theme={theme}>
       <Wrapper>

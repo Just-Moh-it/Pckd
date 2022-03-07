@@ -21,6 +21,9 @@ export const SET_SELECTED_PCKD_QUERY = gql`
         id
         ip
         isp
+        browser {
+          name
+        }
         location {
           name
           city
@@ -38,6 +41,13 @@ export const SET_SELECTED_PCKD_QUERY = gql`
       title
       createdAt
       enableTracking
+      byCountryGraph {
+        count
+        country {
+          code
+          name
+        }
+      }
     }
   }
 `;

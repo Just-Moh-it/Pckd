@@ -54,7 +54,7 @@ const CheckBox = styled.input`
     content: '';
     position: absolute;
     left: 5px;
-    top: 11px;
+    top: 9px;
     background: white;
     width: 2px;
     height: 2px;

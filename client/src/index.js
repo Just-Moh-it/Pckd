@@ -14,7 +14,7 @@ ReactDOM.render(
   <Provider store={store}>
     <ApolloProvider client={client}>
       <ThemeProvider>
-        <BrowserRouter basename={process.env.REACT_APP_BASENAME || ""}>
+        <BrowserRouter basename="/manage">
           <App />
 
           {/* Notifications - Toast Provider */}

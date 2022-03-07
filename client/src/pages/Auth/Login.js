@@ -35,7 +35,8 @@ const Login = () => {
   useEffect(() => {
     if (loginStatus === "success") {
       dispatch(initializeUser());
-      navigate("/manage");
+      // Navigate to dash page using window.location
+      window.location.href = process.env.REACT_APP_BASENAME || "";
     }
   }, [loginStatus, navigate, dispatch]);
 
