@@ -28,7 +28,7 @@ module.exports = {
       // only if link was created by authenticated user
       // else ignore
       if (data.enableTracking) {
-        initiateHitInsert({prisma, id: data.id, ctx});
+        initiateHitInsert({ prisma, id: data.id, ctx });
       }
 
       // Increses the hit count
