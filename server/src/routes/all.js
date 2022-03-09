@@ -44,7 +44,7 @@ module.exports = async (req, res, prisma) => {
     }
 
     // Increses the hit count
-    await prisma.pckd.update({
+    prisma.pckd.update({
       where: {
         id: data.id,
       },
