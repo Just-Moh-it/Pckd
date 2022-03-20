@@ -10,9 +10,9 @@ module.exports = async (req, res, prisma) => {
   // Get request ip address from the connection or from header
   const remoteAddr = testMode
     ? "122.177.155.228"
-    : req.connection.remoteAddress ||
-      req.headers["x-forwarded-for"] ||
-      req.headers["x-real-ip"];
+    : req.connection.remoteAddress.includes("::")
+    ? req.headers["x-forwarded-for"] || req.headers["x-real-ip"]
+    : req.connection.remoteAddress;
 
   // Get user agent from header
   const userAgent = req.headers["user-agent"];
