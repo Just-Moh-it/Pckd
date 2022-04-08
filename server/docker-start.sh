@@ -19,4 +19,4 @@ prisma db push
 
 # Start the server
 echo "Starting server..."
-npm run start
+npm run prod
