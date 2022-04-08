@@ -29,10 +29,10 @@
     "jsonwebtoken": "^8.5.1",
     "nanoid": "^3.1.28",
     "nodemailer": "^6.7.2",
-    "ua-parser-js": "^1.0.2"
+    "ua-parser-js": "^1.0.2",
+    "dotenv": "^10.0.0"
   },
   "devDependencies": {
-    "dotenv": "^10.0.0",
     "prisma": "^3.1.1"
   }
 }

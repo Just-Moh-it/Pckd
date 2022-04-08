@@ -24,6 +24,15 @@ const prisma = new PrismaClient();
   const app = express();
   const httpServer = http.createServer(app);
 
+  // Trust proxy if behind a reverse proxy
+  if(process.env.TRUST_PROXY && process.env.TRUST_PROXY !== "false") {
+    app.set('trust proxy', 
+      process.env.TRUST_PROXY === "true" ? 
+        true /* Convert true as string to boolean */
+        : process.env.TRUST_PROXY /* process.env.TRUST_PROXY can also be a list of IPs */
+    );
+  }
+
   const server = new ApolloServer({
     schema,
     connectToDevTools: true,

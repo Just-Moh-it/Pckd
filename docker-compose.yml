@@ -4,32 +4,30 @@ services:
   server:
     build:
       context: ./server
-    ports:
-      - 4000:4000
     volumes:
-      - ./server:/app
-      - ./logs:/app/logs
+      - ./logs:/home/node/app/logs
     environment:
-      - FLASK_ENVIRONMENT=prod
-      - POSTGRES_HOST=db
-    env_file:
-      - ./.env
+      - DATABASE_URL=postgresql://postgres:postgres@db/pckd
+      - DATABASE_TYPE=postgres
+
+      - JWT_SECRET=verysecurestring
+      - IPREGISTRY_API_KEY=f1ntkcjoqaazglj7
     depends_on:
       - db
 
-  client:
+  frontend:
     build:
       context: ./client
-    volumes:
-      - ./client:/app
     ports:
-      - 3000:3000
-    env_file:
-      - ./.env
+      - 80:80
+    environment:
+      - BACKEND_URL=http://server:4000
 
   db:
     image: postgres:13-alpine
     volumes:
       - ./db:/var/lib/postgresql/data
-    env_file:
-      - ./.env
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=pckd
