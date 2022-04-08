@@ -16,7 +16,8 @@ FROM nginx
 
 # Copy the react application
 RUN rm -r /usr/share/nginx/html/*
-COPY --from=builder /home/node/build/build /usr/share/nginx/html
+RUN mkdir -p /usr/share/nginx/html/manage
+COPY --from=builder /home/node/build/build /usr/share/nginx/html/manage
 
 # Copy the nginx config
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf.tmp
