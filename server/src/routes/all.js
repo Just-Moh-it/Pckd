@@ -49,9 +49,13 @@ module.exports = async (req, res, prisma) => {
         id: data.id,
       },
       data: {
-        hitCount: data.hitCount + 1,
+        hitCount: {
+          increment: 1
+        },
       },
-    });
+    }).then(() => {});
+    // ^ Prisma prommses are not normal promises (instead they are thenables), and will only run if awaited or .then'ed
+    // https://www.prisma.io/docs/concepts/components/prisma-client#:~:text=The%20client%20methods%20are%20%22thenable%22%2C
 
     // Redirect to target
     res.redirect(data.target);
