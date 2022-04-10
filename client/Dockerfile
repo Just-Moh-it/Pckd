@@ -26,5 +26,6 @@ COPY ./nginx.conf /etc/nginx/conf.d/default.conf.tmp
 COPY ./docker-start.sh /entrypoint.sh
 
 EXPOSE 80
+RUN chmod +x entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "nginx", "-g", "daemon off;" ]
