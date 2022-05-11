@@ -81,10 +81,18 @@ const NavWrapper = styled.div`
   nav a {
     color: white;
     transition: all 0.3s ease-in-out;
+    &:last-child {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   nav a:hover {
     box-shadow: 0 2px 0 white;
+    &:last-child {
+      box-shadow: none;
+    }
   }
 
   nav a.active {
