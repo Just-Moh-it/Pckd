@@ -29,7 +29,7 @@ jobs:
         with:
           context: "{{defaultContext}}:server"
           push: true
-          tags: petrleocompel/pckd-server:latest
+          tags: mohit2004/pckd-server:latest
       -
         name: Build and push
         id: docker_build_client
@@ -37,4 +37,4 @@ jobs:
         with:
           context: "{{defaultContext}}:client"
           push: true
-          tags: petrleocompel/pckd-client:latest
+          tags: mohit2004/pckd-client:latest
