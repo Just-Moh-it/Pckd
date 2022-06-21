@@ -33,11 +33,11 @@
 - 🔌 Deploy to custom URL and Infrastructure
 - 🧤 Customize settings like link back-halfs, link targets, tracking info, etc.
 - 🕵️‍♂️ Track each click on a pckd, and retrieve
-- 🌐 IP address (Spoof-resistant)
-- 🕸️ ISP Name
-- 🗺️ IP-Location
-- 💻 Device details like OS Version and Device Model
-- 🪟 Browser Name and including version
+  - 🌐 IP address (Spoof-resistant)
+  - 🕸️ ISP Name
+  - 🗺️ IP-Location
+  - 💻 Device details like OS Version and Device Model
+  - 🪟 Browser Name and including version
 - 💯 Custom Loading/Redirecting Screen (self-hosted only)
 - 🏃‍♂️ Quick Redirections in 150ms!
 - 🔐 Fast, Reliable and Secure
