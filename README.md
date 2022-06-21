@@ -217,7 +217,7 @@ This project is far from perfect, and we'll reach there one day, or at least get
 - Multiple Subdomain Support (Discussion [#14](https://github.com/PckdHQ/Pckd/issues/14))
 - Email Notifications for hits if enabled (Discussion [#18](https://github.com/PckdHQ/Pckd/issues/18))
 - Custom OG Preview for social-sharing (Discussion [#39](https://github.com/PckdHQ/Pckd/discussions/39))
-- One-Click Deploys (Discussion [#44](https://github.com/PckdHQ/Pckd/discussions/18))
+- One-Click Deploys (Discussion [#44](https://github.com/PckdHQ/Pckd/discussions/44))
 - Password-protected links (Discussion [#41](https://github.com/PckdHQ/Pckd/discussions/41))
 
 Have a look at the 🛣 [Roadmap](https://github.com/Just-Moh-it/Pckd/issues) for a full list of proposed features and
