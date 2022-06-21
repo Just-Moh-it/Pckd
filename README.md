@@ -213,7 +213,7 @@ Read all installation docs [here](https://docs.pckd.me/installation)
 This project is far from perfect, and we'll reach there one day, or at least get close.
 
 - Link-in-bio feature (Discussion [#49](https://github.com/PckdHQ/Pckd/discussions/49))
-- Admin Panel Support (Discussion [#13](https://github.com/PckdHQ/Pckd/issues/13))
+- Admin Panel Support (Discussion [#43](https://github.com/PckdHQ/Pckd/issues/43))
 - Multiple Subdomain Support (Discussion [#14](https://github.com/PckdHQ/Pckd/issues/14))
 - Email Notifications for hits if enabled (Discussion [#18](https://github.com/PckdHQ/Pckd/issues/18))
 - Custom OG Preview for social-sharing (Discussion [#39](https://github.com/PckdHQ/Pckd/discussions/39))
