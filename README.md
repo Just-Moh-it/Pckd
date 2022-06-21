@@ -2,57 +2,49 @@
 
 <!-- PROJECT Intro -->
 
-<br />
-<div align="center">
-  <a href="https://github.com/Just-Moh-it/Pckd/stargazers">
-    <img src="https://user-images.githubusercontent.com/48997634/153762074-d0aaa066-1c4e-48a2-9c08-44bc438c7a0f.png" alt="Project Banner" height="100">
-  </a>
+![Pckd](https://user-images.githubusercontent.com/48997634/157104510-21df472c-d0d9-4075-96f1-18aded5905a5.png)
 
-<p align="center">
-    More than just a URL Shortener 😎
-    <br />
-    <a href="https://github.com/Just-Moh-it/Pckd"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://www.figma.com/file/CWmPgKuSWm6dvihp1XXTn1/Pckd-2?node-id=230%3A427">Design file on Figma</a>
-    ·
-    <a href="https://github.com/Just-Moh-it/Pckd/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/Just-Moh-it/Pckd/issues">Request Feature</a>
-  </p>
+<div align="center">
+
+  # 🔗 Pckd
+
+  <a href="https://docs.pckd.me/quick-start">Quick start</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="http://pckd.me/github-demo">Demo</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://docs.pckd.me">Docs</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://docks.pckd.me/blog">Blog</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://twitter.com/PckdHQ">Twitter</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://discord.gg/cqNbdEmazR">Discord</a>
+  <br />
+
+  <hr />
 </div>
 
-<!-- ABOUT THE PROJECT -->
+![](https://user-images.githubusercontent.com/48997634/174793049-67f58409-a449-442f-913c-6a7859a7bf29.png)
 
-# 💁 About The Project
+**Pckd is a free-to-use URL Shortener**, that can be easily self-hosted with awesome features like:
 
-<a  href="https://mohityadav.codes/projects/Pckd">
-    <img src="https://user-images.githubusercontent.com/48997634/157104510-21df472c-d0d9-4075-96f1-18aded5905a5.png" alt="Project Banner">
-</a>
-&nbsp;
-
-Pckd is a full-customizable, open source, free-to-use, usable-design-focued, tracking-intensive URL Shortener with awesome features, and **supports**:
-
-- Creating short urls (we call them 🔗 `pckd`s) from long ones with, or without an account
-- Customize back-halfs on every 🔗 pckd
-- Deploy to custom 🔌 URL and Infrastructure 💿
-- Track 🕵️‍♂️ each and every click on a 🔗 pckd, and retrieve
-
-  - 🌐 IP address (Spoof-resistant)
-  - 🕸️ ISP Name
-  - 🗺️ IP-Location
-  - 💻 Device details like OS Version and Device Model
-  - 🪟 Browser Name and including version
-
-  It's Just crazy how powerful it is! 🤯
-
-- Edit links after they're created
-- Custom Loading/Redirecting Screen 💯
-- [On Roadmap!] Quick Redirections in 150ms! 😱
-- Fast, Reliable and Secure 🔐
-- Secret Storage 👮 and handling using 💻 environment variables
-- Built on Modern and Well-used Technologies like React, GraphQL & NodeJS
-- Use your own DBMS 🥳. Pckd is compatible with MySQL, PostgreSQL, MongoDB and [many more](https://www.prisma.io/docs/reference/database-reference/supported-databases)
+- 🔗 Shorten URLs (or `pckd`s) with, or without an account
+- 🖌️ Customize back-halfs on every pckd
+- 🔌 Deploy to custom URL and Infrastructure
+- 🧤 Customize settings like link back-halfs, link targets, tracking info, etc.
+- 🕵️‍♂️ Track each click on a pckd, and retrieve
+- 🌐 IP address (Spoof-resistant)
+- 🕸️ ISP Name
+- 🗺️ IP-Location
+- 💻 Device details like OS Version and Device Model
+- 🪟 Browser Name and including version
+- 💯 Custom Loading/Redirecting Screen (self-hosted only)
+- 🏃‍♂️ Quick Redirections in 150ms!
+- 🔐 Fast, Reliable and Secure
+- 👮 Secure Secret Storage and handling using 💻 environment variables
+- ✨ Built on a modern tech stack
+- 💿 Compatible with MySQL, PostgreSQL, MongoDB and [many
+more](https://www.prisma.io/docs/reference/database-reference/supported-databases)
 
 This project was created to be the most powerful URL shortener for the public, so no wonder it's so feature-rich
 
@@ -63,51 +55,116 @@ This project was created to be the most powerful URL shortener for the public, s
 Here is a sneak peek of the application and it's visuals 😍:
 
 <table>
-    <tr>
-        <td colspan="2">
-            <img src="https://user-images.githubusercontent.com/48997634/153762057-3b3792ec-cfd6-4994-ba77-f973b610bac8.png" alt="Dashboard Page" />
-            <br />
-            <p align="center">Dashboard Page</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <img src="https://user-images.githubusercontent.com/48997634/153762072-2c1fb032-f987-4587-938b-589886d6f02d.png" alt="Login Screen" />
-            <br />
-            <p align="center">Login</p></td>
-        <td>
-            <img src="https://user-images.githubusercontent.com/48997634/153762076-2d353ff0-1269-4d52-a5f8-155a2406c927.png" alt="Signup" />
-            <br />
-            <p align="center">Signup</p></td>
-    </tr>
-    <tr>
-        <td>
-            <img src="https://user-images.githubusercontent.com/48997634/153762042-58d55b0d-61cb-4e4e-a702-a46f455d7454.png" alt="Account Page" />
-            <br />
-            <p align="center">Account Page</p></td>
-        <td>
-            <img src="https://user-images.githubusercontent.com/48997634/153762075-62f5f946-93fa-4777-b663-fd8cfd6eb198.png" alt="Reset Password Screen" />
-            <br />
-            <p align="center">Reset Password</p></td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <img src="https://user-images.githubusercontent.com/48997634/153762070-9ce6e657-d1a3-4549-9d8b-245f1470d440.png" alt="Home Page" />
-            <br />
-            <p align="center">Home Page</p>
-        </td>
-    </tr>
+  <tr>
+    <td colspan="2">
+      <img src="https://user-images.githubusercontent.com/48997634/153762057-3b3792ec-cfd6-4994-ba77-f973b610bac8.png"
+        alt="Dashboard Page" />
+      <br />
+      <p align="center">Dashboard Page</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://user-images.githubusercontent.com/48997634/153762072-2c1fb032-f987-4587-938b-589886d6f02d.png"
+        alt="Login Screen" />
+      <br />
+      <p align="center">Login</p>
+    </td>
+    <td>
+      <img src="https://user-images.githubusercontent.com/48997634/153762076-2d353ff0-1269-4d52-a5f8-155a2406c927.png"
+        alt="Signup" />
+      <br />
+      <p align="center">Signup</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://user-images.githubusercontent.com/48997634/153762042-58d55b0d-61cb-4e4e-a702-a46f455d7454.png"
+        alt="Account Page" />
+      <br />
+      <p align="center">Account Page</p>
+    </td>
+    <td>
+      <img src="https://user-images.githubusercontent.com/48997634/153762075-62f5f946-93fa-4777-b663-fd8cfd6eb198.png"
+        alt="Reset Password Screen" />
+      <br />
+      <p align="center">Reset Password</p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <img src="https://user-images.githubusercontent.com/48997634/153762070-9ce6e657-d1a3-4549-9d8b-245f1470d440.png"
+        alt="Home Page" />
+      <br />
+      <p align="center">Home Page</p>
+    </td>
+  </tr>
 </table>
 
-Want to create your own iteration? [View the designs on Figma](https://www.figma.com/file/CWmPgKuSWm6dvihp1XXTn1/Pckd-2?node-id=230%3A427)
+Want to create your own iteration? [View the designs on
+Figma](https://www.figma.com/file/CWmPgKuSWm6dvihp1XXTn1/Pckd-2?node-id=230%3A427)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- Motivation -->
 
-## 🤗 Motivation
+## 🎗 Supporters
 
-After looking at all the `aka.ms` links out there which flood windows, along with the numerous time saving been prompted to buy premium plans from `bit.ly` while shortening my URLs, the decision of having a personal URL shortener hosted on a custom domain for free caught wind. Starting out by looking at GitHub for a JavaScript-based URL shortener, no one stood out and had minimal features. So, I decided to create my own URL shortener along with the help of a few friends, and got what this repository contains.
+Pckd is made possible by support from some awesome folks including:
+
+### 😇 One-off Backers
+
+<!-- readme: contributors -start -->
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/geekedtv">
+        <img src="https://avatars.githubusercontent.com/u/57927413?v=4" width="100;" alt="geekedtv" />
+        <br />
+        <sub><b>Geeked</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/BenNotix">
+        <img src="https://avatars.githubusercontent.com/u/69650356?v=4" width="100;" alt="Ben Notix" />
+        <br />
+        <sub><b>Ben Notix</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/rizwan95">
+        <img src="https://pbs.twimg.com/profile_images/845698052820090880/rbSoa4Bs_400x400.jpg" width="100;"
+          alt="rizwan95" />
+        <br />
+        <sub><b>Rizwan Ahmed</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/sponsors/PckdHQ/">
+        <img src="https://user-images.githubusercontent.com/48997634/174815737-111b70a6-7fd1-4ebf-a2db-7a05dd0bfb62.png"
+          width="100;" alt="Add your support" />
+        <br />
+        <sub><b>[Add your support]</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+## 🤔 Why does Pckd exist?
+
+After looking at all the `aka.ms` links out there which flood windows, along with the numerous time saving been prompted
+to buy premium plans from `bit.ly` while shortening my URLs, the decision of having a reliable, personal URL shortener
+hosted on a custom domain for free caught wind.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## 🧮 Comparison
+
+Pckd stacks up well against major URL Shorteners
+
+![Comparison Table including other free and paid
+shorteners](https://user-images.githubusercontent.com/48997634/174783368-41a35e85-bcda-4d12-adc6-b21a9d3ffc39.png)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -115,12 +172,14 @@ After looking at all the `aka.ms` links out there which flood windows, along wit
 
 The following technologies were involved in the making of this project.
 
-- [React JS](https://reactjs.org/) ⚛️ - For the frontend of the app
-- [Apollo GraphQL Server v3](https://www.apollographql.com/docs/apollo-server/) 🕸️ - For querying the backend from the frontend efficiently
-- [GraphQL Template By Mohit](https://github.com/Just-Moh-it/grapqhl-backend) 🧩 - Boilerplate Template used for initializing the backend
-- [Prisma](https://www.prisma.io/) 💿 - The ORM used for the app
-- Any 😨 relational or non-relational [database that Prisma supports](https://www.prisma.io/docs/reference/database-reference/supported-databases)
-- [Redux](https://redux.js.org/) 🗺️ w/ [Redux Toolkit](https://redux-toolkit.js.org/) - For handling states across the application
+- ⚛️ [React JS](https://reactjs.org/) - Frontend
+- 🚀 [Apollo GraphQL Server v3](https://www.apollographql.com/docs/apollo-server/) - Server API
+- 🧩 [GraphQL Template By Mohit](https://github.com/Just-Moh-it/grapqhl-backend) - Boilerplate for Apollo
+- 💿 [Prisma](https://www.prisma.io/) - ORM
+- 😨 Any relational or non-relational [database that Prisma
+supports](https://www.prisma.io/docs/reference/database-reference/supported-databases)
+- 🗺️ [Redux](https://redux.js.org/) w/ [Redux Toolkit](https://redux-toolkit.js.org/) - State management
+- 🌐 [IP Registry](https://ipregistry.co/) - Free Geolocation lookups
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -130,70 +189,61 @@ The following technologies were involved in the making of this project.
 
 To get started with having your own instance of Pckd, follow the steps described in the following section
 
-_**NOTE**_: Here are the [**DETAILED INSTRUCTIONS**](docs/getting-started.md)
+## 🚦 Get an API Key first
 
-## 🌂 Prerequisites
+Pckd uses [IP Registry](https://ipregistry.co/) for Geo-location look-ups to track hits (free for 100,000 lookups)
 
-You will need these to be already installed:
-
-- [NodeJS](https://nodejs.org/) 14+ and [NPM](https://npmjs.com/)
-- [A supported database system](https://www.prisma.io/docs/reference/database-reference/supported-databases)
-
-And that's it
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+Obtain an **API key** from the [ipregistry.co](https://ipregistry.co) website
 
 ## 💾 Installation
 
-Follow these steps to get started with your own instance of Pckd
+Pckd supports the following installations
 
-1. Clone the repo and `cd` to the folder base of this repo
-2. Run command `npm run init` to install all the dependencies, and initialize environment files in both folders
-3. Obtain a free API key from [IP Registry](https://ipregistry.co/) (for IP address tracking info lookups)
-4. Create a database named pckd in your chosen DBMS and note down the connection Username and Password
-5. Manually go to both the `client` and `server` folder and fill in the values in the `.env` file
-6. Open the [`server/prisma/schema.prisma`](server/prisma/schema.prisma) file and replace `postgresql` with your chosen db name.
-7. Return to base directory, and run `npm run db-init` to sync database with schema.
-8. To test if everything's working, run `npm run dev` and test the app
-9. To promote to production, run `npm run build-client` and then `npm start`
+- 📦 [Deploy the release](https://docs.pckd.me/installation/from-release)
+- 🛠 [Build from source](https://docs.pckd.me/installation/from-source)
+- 🐳 [Unstable] [Docker-Compose Installation](https://docs.pckd.me/installation/from-docker-compose)
+- 🐋 [Soon] [Docker-Hub Pre-built Image](https://docs.pckd.me/installation/from-dockerhub-image)
 
-If you have any problems following the steps, [here are the detailed instructions](docs/getting-started.md)
+Read all installation docs [here](https://docs.pckd.me/installation)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-# 🤩 Roadmap
+# 🛣 Roadmap
 
 This project is far from perfect, and we'll reach there one day, or at least get close.
 
-- [x] Add forgotten password-reset capabilities ([issue #3](issues/3))
-- [ ] Adding extra features such as enabling or disabling tracking on certain links ([Issue #2](issues/2))
-- [ ] Quick redirects using ExpressJS directly from the backend, without loading react and Redux (planned ~150ms)
-- [ ] Adding docker-compose supported quick installation
+- Link-in-bio feature (Discussion [#49](https://github.com/PckdHQ/Pckd/discussions/49))
+- Admin Panel Support (Discussion [#13](https://github.com/PckdHQ/Pckd/issues/13))
+- Multiple Subdomain Support (Discussion [#14](https://github.com/PckdHQ/Pckd/issues/14))
+- Email Notifications for hits if enabled (Discussion [#18](https://github.com/PckdHQ/Pckd/issues/18))
+- Custom OG Preview for social-sharing (Discussion [#39](https://github.com/PckdHQ/Pckd/discussions/39))
+- One-Click Deploys (Discussion [#44](https://github.com/PckdHQ/Pckd/discussions/18))
+- Password-protected links (Discussion [#41](https://github.com/PckdHQ/Pckd/discussions/41))
 
-Known Issues:
-
-- [ ] Hit not registered if IP not provided
-
-See the [open issues](https://github.com/Just-Moh-it/Pckd/issues) for a full list of proposed features (and known issues).
+Have a look at the 🛣 [Roadmap](https://github.com/Just-Moh-it/Pckd/issues) for a full list of proposed features and
+enhancements.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-# 📐 How it works
+# 📐 Architecture
 
 Here's a diagram explaining exactly how everything fits into place
 
 <div align="center">
-<img src="https://user-images.githubusercontent.com/48997634/153762066-548fe751-e681-4af0-8672-0a459895a8b2.png" height=300/>
-<p>Here's how everything fits into the scene</p>
+  <img src="https://user-images.githubusercontent.com/48997634/153762066-548fe751-e681-4af0-8672-0a459895a8b2.png"
+    height="300" />
+  <p>Here's how everything fits into the scene</p>
 </div>
 
 <!-- CONTRIBUTING -->
 
-# 🙃 Contributing
+# 🌈 Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any
+contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also
+simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
@@ -202,29 +252,80 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+Also, refer to [`Contributing.md`](contributing.md)
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-# 👋 Reach Out
 
-You can reach out to Mohit Yadav, the main creator of the app (for now) at mail ([mohit@mohityadav.codes](mailto:mohit@mohityadav.codes)), [Twitter](https://twitter.com/Just_Moh_it) or [Discord](https://discord.gg/cqNbdEmazR)
+# Contributors
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/just-moh-it">
+        <img src="https://avatars.githubusercontent.com/u/48997634?v=4" width="100;" alt="Just-Moh-it" />
+        <br />
+        <sub><b>Mohit Yadav</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/itzderock">
+        <img src="https://avatars.githubusercontent.com/u/14848722?v=4" width="100;" alt="ItzDerock" />
+        <br />
+        <sub><b>Derock</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/szilarddoro">
+        <img src="https://avatars.githubusercontent.com/u/10910174?s=60&v=4" width="100;" alt="rizwan95" />
+        <br />
+        <sub><b>Rizwan Ahmed</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/petrleocompel">
+        <img src="https://avatars.githubusercontent.com/u/9423543?s=60&v=4" width="100;" alt="petrleocompel" />
+        <br />
+        <sub><b>Petr Leo Compel</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Sujith46">
+        <img src="https://avatars.githubusercontent.com/u/37608689?v=4" width="100;" alt="Sujith46" />
+        <br />
+        <sub><b>Sujith</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+# 👋 Author
+
+### 💁🏻‍♂️ Mohit Yadav
+
+You can reach out to Mohit Yadav, the maintainer of the app on [Twitter](https://twitter.com/Just_Moh_it), [yo@mohitya.dev](mailto:yo@mohitya.dev) or
+[Discord](https://discord.gg/cqNbdEmazR)
 
 <table>
   <tr>
     <td>
       <a href="https://discord.gg/cqNbdEmazR">
-        <img src="https://user-images.githubusercontent.com/48997634/153762069-df7f5900-e685-45c9-8d30-a1a73bc28a8f.png" alt="Join Discord Server" />
-        <p align="center">If you Have any questions</p>
+        <img src="https://user-images.githubusercontent.com/48997634/153762069-df7f5900-e685-45c9-8d30-a1a73bc28a8f.png"
+          alt="Join Discord Server" />
+        <p align="center">For installation support</p>
       </a>
     </td>
     <td>
-      <a href="https://www.buymeacoffee.com/JustMohit">
-        <img src="https://user-images.githubusercontent.com/48997634/153762055-e1f311aa-1693-4dd9-9c19-e41cc17d2505.png" alt="Buy me a coffee" />
-        <p align="center">So I can keep on going</p>
+      <a href="https://ko-fi.com/S6S0C37X3">
+        <img src="https://user-images.githubusercontent.com/48997634/174812602-496e76e1-0651-4b29-8933-4acaf2a9e89e.png"
+          alt="Buy me a coffee" />
+        <p align="center">To support Projects</p>
       </a>
     </td>
     <td>
-      <a href="https://mohityadav.codes">
-        <img src="https://user-images.githubusercontent.com/48997634/153762079-d420fac9-ea94-48a9-b1ab-be045b83bef4.png" alt="Visit website">
+      <a href="https://mohitya.dev?utm_source=github.com&utm_medium=pckd_author_link">
+        <img src="https://user-images.githubusercontent.com/48997634/174813027-6b64959f-66d5-4c73-b405-a5322ed16fc9.png"
+          alt="Visit website">
         <p align="center">Awesome projects</p>
       </a>
     </td>
@@ -235,27 +336,20 @@ You can reach out to Mohit Yadav, the main creator of the app (for now) at mail 
 
 <!-- LICENSE -->
 
-# 😋 License
+# 🛡 License
 
-Distributed under the MIT License. See [`LICENSE.md`](LICENSE.md) for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGMENTS -->
-
-# 😊 Acknowledgments
-
-- [Parth Jadhav](https://github.com/ParthJadhav) for ideas and support
-- [Respective Google Font](https://fonts.google.com) Creators
-- [AR Shakir](https://dribbble.com/shots/15223174-Project-Management-Dashboard-UI-Exploration) - Inspiration for dashboard UI design
+Distributed under the **MIT License**. See [`LICENSE.md`](LICENSE.md) for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-# 🥰 Endnote
+# 🌟 Support this project
 
-Just one last thing, if you have reached this far, why not consider giving a star to the repo like [many incredible people](stargazers) already have. This keeps us going, and we love to see that people like our projects, and motivates us to make more of these. With that, thank you loads 😊🥰
+![](https://user-images.githubusercontent.com/48997634/174794647-0c851917-e5c9-4fb9-bf88-b61d89dc2f4f.gif)
 
-<p align="right">~ Mohit</p>
+### [⏫⭐️ Scroll to the star button](#start-of-content)
+
+If you believe this project has potential, feel free to **star this repo** just like many [amazing people](/stargazers)
+have.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
