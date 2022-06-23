@@ -8,13 +8,13 @@
 
   # 🔗 Pckd
 
-  <a href="https://docs.pckd.me/quick-start">Quick start</a>
+  <a href="https://docs.pckd.me/docs/getting-started/installation/install_intro">Quick start</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
   <a href="http://pckd.me/github-demo">Demo</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href="https://docs.pckd.me">Docs</a>
+  <a href="https://pckd.me/docs">Docs</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href="https://docks.pckd.me/blog">Blog</a>
+  <a href="https://pckd.me/blog">Blog</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
   <a href="https://twitter.com/PckdHQ">Twitter</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
@@ -199,12 +199,12 @@ Obtain an **API key** from the [ipregistry.co](https://ipregistry.co) website
 
 Pckd supports the following installations
 
-- 📦 [Deploy the release](https://docs.pckd.me/installation/from-release)
-- 🛠 [Build from source](https://docs.pckd.me/installation/from-source)
-- 🐳 [Unstable] [Docker-Compose Installation](https://docs.pckd.me/installation/from-docker-compose)
-- 🐋 [Soon] [Docker-Hub Pre-built Image](https://docs.pckd.me/installation/from-dockerhub-image)
+- 🛠 [Build from source code](https://docs.pckd.me/docs/install-from-code)
+- 📦 [Soon] [Deploy the release](https://docs.pckd.me/docs/install-from-release)
+- 🐳 [Unstable] [Docker-Compose Installation](https://docs.pckd.me/docs/install-from-dockerhub)
+- 🐋 [Soon] [Docker-Hub Pre-built Image](https://docs.pckd.me/docs/install-from-docker-compose)
 
-Read all installation docs [here](https://docs.pckd.me/installation)
+Read all installation docs [here](https://docs.pckd.me/docs/getting-started/installation/install_intro)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
