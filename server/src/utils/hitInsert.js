@@ -16,7 +16,7 @@ module.exports = async ({ ip, userAgent, pckdId, prisma }) => {
     try {
       // const ispInfo = await isp(ip);
       if (ip) {
-        const rawIspInfo = await isp(ip);
+        const rawIspInfo = await isp(ip.split(" ")[0]);
 
         ipInfo = {
           ip: ip,
