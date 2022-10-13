@@ -274,7 +274,7 @@ const RightWrapper = () => {
                       Visit Time ({activeHit?.timezone.abbreviation} |{" "}
                       {`${
                         !activeHit?.timezone.offset
-                          .toString()
+                          ?.toString()
                           .startsWith("-") && "+"
                       } ${activeHit?.timezone.offset}`}
                     </span>
