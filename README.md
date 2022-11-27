@@ -24,7 +24,13 @@
   <hr />
 </div>
 
-![](https://user-images.githubusercontent.com/48997634/174793049-67f58409-a449-442f-913c-6a7859a7bf29.png)
+# ⛔️🛑 This version of the project is not currently being maintained
+
+We're focusing our efforts towards creating Pckd V2, since further development/improvements on V1 won't be sustainable. Therefore, we can't guarantee solutions to all problems at the time. Please check back in a few months for Pckd V2. Until then, try out other awesome URL shorteners like [dub](https://github.com/steven-tey/dub), [etc.](https://github.com/738/awesome-url-shortener#self-hosting-opensource)
+
+<hr />
+
+[](https://user-images.githubusercontent.com/48997634/174793049-67f58409-a449-442f-913c-6a7859a7bf29.png)
 
 **Pckd is a free-to-use URL Shortener**, that can be easily self-hosted with awesome features like:
 
